@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
     sequelize.define('diet', {
         id: {
-            type: DataTypes.INTEGER, ///Se duplica con api??
+            type: DataTypes.INTEGER, 
             autoIncrement: true,
             primaryKey: true,
         },
@@ -12,5 +12,8 @@ module.exports = (sequelize) => {
             unique: true,
             allowNull: false,
         }
+      },
+      {
+        timestamps: false,
       });
     };

@@ -14,7 +14,7 @@ const router = Router();
 
 router.get('/recipes/:idRecipe', recipesByIdRoute)
 router.post('/recipes', postRecipesRoute)
-router.get('/recipes/', getRecipesRoute)
+router.get('/recipes', getRecipesRoute)
 router.get('/diets', getDietsRoute)
 
 module.exports = router;

@@ -1,28 +1,37 @@
 require('dotenv').config()
 const { URL_API, KEY } = process.env
 const axios = require('axios')
+const {Recipe, Diet} = require('../db')
+const { recipeRequested } = require('./auxiliar')
 
 const recipesById = async(idRecipe) => {
-    const apiRecipe = await axios(`${URL_API}/${idRecipe}/information?apiKey=${KEY}`);
-    const {id, title, image, instructions, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree} = apiRecipe.data;
-    let dietsOk = new Set();
-    if(vegetarian) dietsOk.add("vegetarian")
-    if(vegan) dietsOk.add("vegan");
-    if(glutenFree) dietsOk.add("gluten free");
-    if(diets) diets.map(diet => dietsOk.add(diet))
-    let recipe = {
-        id: id,
-        name: title,
-        image: image,
-        resume: instructions,
-        health_score: healthScore,
-        step_by_step: analyzedInstructions,
-        diets: dietsOk
+    if(idRecipe.includes("-")){
+        const dbRecipe = await Recipe.findByPk(idRecipe, {
+            include: {
+                model: Diet,
+                attributes: ['name'],
+                through: {
+                    attributes: [],
+                },
+            }
+        })
+
+        const dietArray = dbRecipe.diets.map(diet => diet.name);
+        dbRecipe.dataValues.diets = dietArray;
+        
+        console.log(dbRecipe.dataValues)
+        return dbRecipe.dataValues;
     }
-    return recipe; 
+
+    else {
+        const apiRecipe = await axios(`${URL_API}/${idRecipe}/information?apiKey=${KEY}`);
+        const {id, title, image, instructions, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree} = apiRecipe.data;
+        const apiRecipeById = recipeRequested({id, title, image, instructions, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree})
+        return apiRecipeById;
+    }
 }
 
 module.exports = recipesById;
 
-
+//Api example
 //https://api.spoonacular.com/recipes/716426/information?apiKey=e9de31d9768e4d3ab04ef888b2095c63

@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define('recipe', {
     id: {
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      defaultValue: DataTypes.UUIDV1,
       primaryKey: true,
     },
     name: {
@@ -18,15 +18,15 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     resume: {
-      type: DataTypes.STRING, //Agregar máximos y min?
+      type: DataTypes.STRING(400),
       allowNull: false,
     },
     health_score: {
-      type: DataTypes.STRING, //Son números???
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     step_by_step: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING(400)),
       allowNull: false,
     },
   }, 

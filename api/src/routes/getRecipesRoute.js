@@ -2,8 +2,8 @@ const recepiesGetter = require ('../controllers/getRecipesCont')
 
 module.exports = async(req, res) => {
     try{
-        const {name} = req.query;
-        const matchedRecepies = await recepiesGetter(name);
+        const {search} = req.query;
+        const matchedRecepies = await recepiesGetter(search);
         res.status(200).json(matchedRecepies);
     }
     catch(err){
