@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipes } from '../../Redux/actions';
 
-export default function Cards(){
+export default function Cards({indexOfFirstPost, indexOfLastPost}){
     
     const recipes = useSelector((state) => state.recipes);
 
@@ -13,10 +13,12 @@ export default function Cards(){
     useEffect(()=>{
         dispatch(getRecipes());
     }, []);
-    
+
+    const currentPosts = recipes.slice(indexOfFirstPost, indexOfLastPost);
+   
     return(
         <div className={style.CardsContainer}>
-            {recipes.map((recipe) => {
+            {currentPosts.map((recipe) => {
                     return <Card 
                     key={recipe.id}
                     id={recipe.id}
