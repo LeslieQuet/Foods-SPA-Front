@@ -15,8 +15,39 @@ const recipesGetter = async (search) => {
                 },
             }
     })
+
+    //Si no recibe query trae recipes de api y bd y arma objetos más simples para el display en home(id, name, image)
+    if(!search) {
+
+        const dbRecipesOk = dbRecipes.map(recipe => {
+            const {id, name, image} = recipe;
+            
+            const recipeOk = {
+                id,
+                name,
+                image,
+            };
+            
+            return recipeOk;
+        })
+        
+        const apiRecipes100 = await axios.get(`${URL_API}/complexSearch?apiKey=${KEY}&number=100`)
+        const apiRecipes100ok = apiRecipes100.data.results.map(recipe => {
+            const {id, title, image} = recipe;
+            
+            const recipeOk = {
+                id,
+                name: title,
+                image,
+            };
+            
+            return recipeOk;
+        })
+
+        return dbRecipesOk.concat(apiRecipes100ok);
+    }
     
-    //Filtra recetas BD por query 
+    //Si recibe Query filtra recetas BD por query 
     const DBFilteredRecipes = dbRecipes.filter(recipe => recipe.name.toLowerCase().includes(search.toLowerCase()))
     
     //Mapea las conincidencias de la BD y crea los objetos para pasar al front con formatos homologados con los de la api

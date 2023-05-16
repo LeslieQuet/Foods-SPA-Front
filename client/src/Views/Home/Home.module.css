@@ -1,0 +1,9 @@
+.HomeContainer{
+    width: 100%;
+  }
+
+.text{
+    font-size: 3vh;;
+    display: inline-flexbox;
+    color: white;
+}
