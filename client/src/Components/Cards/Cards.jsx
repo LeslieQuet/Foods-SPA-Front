@@ -1,3 +1,4 @@
+import React from 'react';
 import style from './Cards.module.css'
 import Card from '../Card/Card';
 import { useEffect } from 'react';

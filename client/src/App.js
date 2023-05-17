@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './Views/Home/Home'
-// import Detail from './Views/Detail/Detail';
+import Detail from './Views/Detail/Detail';
 // import About from './Views/About/About';
 // import Create from './Views/Create/Create';
 import {Route, Routes, Link, useLocation} from "react-router-dom"
@@ -15,8 +15,8 @@ function App() {
       </Link>}
       <Routes>
         <Route path="/home" element={<Home/>} />
-        {/* <Route path="/recipe/:id" element= {<Detail/>}/>
-        <Route path="/recipe/create" element= {<Create/>}/>
+        <Route path="/recipe/:ID" element= {<Detail/>}/>
+        {/* <Route path="/recipe/create" element= {<Create/>}/>
         <Route path= "/about" element= {<About/>}/> */}
       </Routes>
     </div>

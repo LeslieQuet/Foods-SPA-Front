@@ -1,5 +1,5 @@
 const recipeRequested = (recipe) => {
-    const {id, title, image, instructions, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree} = recipe;
+    const {id, title, image, summary, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree} = recipe;
 
     const dietsOk = new Set();
         if(vegetarian) dietsOk.add("vegetarian");
@@ -18,7 +18,7 @@ const recipeRequested = (recipe) => {
             id,
             name: title,
             image,
-            resume: instructions,
+            resume: summary,
             health_score: healthScore,
             step_by_step: stepsOk,
             diets: dietsArr,

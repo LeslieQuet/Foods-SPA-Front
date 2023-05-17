@@ -25,8 +25,8 @@ const recipesById = async(idRecipe) => {
 
     else {
         const apiRecipe = await axios(`${URL_API}/${idRecipe}/information?apiKey=${KEY}`);
-        const {id, title, image, instructions, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree} = apiRecipe.data;
-        const apiRecipeById = recipeRequested({id, title, image, instructions, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree})
+        const {id, title, image, summary, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree} = apiRecipe.data;
+        const apiRecipeById = recipeRequested({id, title, image, summary, healthScore, analyzedInstructions, diets, vegetarian, vegan, glutenFree})
         return apiRecipeById;
     }
 }

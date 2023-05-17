@@ -23,26 +23,29 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
     border-radius: 15%;
-    box-sizing: content-box;
     width: 80%;
 }
 
-/* .cardDitail{
+.cardDitail{
     text-decoration: none;
-    font-size: 3vh;
-    color: #00ffff;
+    font-size: 2.5vh;
+    height:fit-content;
+    width: 50%;
+    align-self: center;
+    color: #76f2f6;
     padding: 0px;
+    margin: 5px;
     border-radius: 20%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(68, 63, 61, 0.651);
     transition: 0.5s;
 }
 
 .cardDitail:hover{
-    margin: 0 10px;
     cursor: pointer;
-    background-color: rgb(66, 246, 255);;
+    background-color: rgb(249, 255, 66);;
     color: black;
     border-radius: 20%;
     box-shadow: 6px 7px 22px -3px rgba(0,0,0,0.5);
-} */
+}
