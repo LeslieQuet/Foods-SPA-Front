@@ -1,8 +1,8 @@
 import './App.css';
 import Home from './Views/Home/Home'
 import Detail from './Views/Detail/Detail';
+import Create from './Views/Create/Create';
 // import About from './Views/About/About';
-// import Create from './Views/Create/Create';
 import {Route, Routes, Link, useLocation} from "react-router-dom"
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
       <Routes>
         <Route path="/home" element={<Home/>} />
         <Route path="/recipe/:ID" element= {<Detail/>}/>
-        {/* <Route path="/recipe/create" element= {<Create/>}/>
-        <Route path= "/about" element= {<About/>}/> */}
+        <Route path="/recipe/create" element= {<Create/>}/>
+        {/* <Route path= "/about" element= {<About/>}/> */}
       </Routes>
     </div>
   );

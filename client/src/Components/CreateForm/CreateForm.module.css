@@ -1,0 +1,26 @@
+.form{
+    background-color: orange;
+    padding: 1em;
+    border-radius: 25px; 
+
+}
+
+.text{
+    color: orangered;
+    font-size: large;
+    font-weight: bold;
+}
+
+.searchInput{
+    border: 0px;
+    border-radius: 15px; 
+    width: 85%;
+    height: 3vh;
+    margin: 5px;
+    padding: 5px;
+}
+
+.error{
+    color: rgb(183, 25, 25);
+    font-size: smaller;
+}

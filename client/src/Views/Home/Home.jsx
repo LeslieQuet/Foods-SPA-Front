@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Cards from '../../Components/Cards/Cards'
 import Pagination from '../../Components/Pagination/Pagination';
+import { Link } from 'react-router-dom';
 
 export default function Home(){
     
@@ -21,6 +22,7 @@ export default function Home(){
     return(
     <div className={style.HomeContainer}>
         <p>Recetas de cocina fáciles y saludables</p>
+        <Link to={"/recipe/create"} className={style.createButton}>Crear una nueva receta</Link>
         <Pagination postPerPage={postPerPage} totalPosts={recipes.length} paginate={paginate}/>
         <Cards indexOfFirstPost={indexOfFirstPost} indexOfLastPost={indexOfLastPost} />
     </div>
