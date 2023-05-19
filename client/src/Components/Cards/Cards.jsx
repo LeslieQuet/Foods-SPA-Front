@@ -25,6 +25,7 @@ export default function Cards({indexOfFirstPost, indexOfLastPost}){
                     id={recipe.id}
                     name={recipe.name}
                     image={recipe.image}
+                    health_score={recipe.health_score}
                     />;
                 })}
         </div>

@@ -3,6 +3,7 @@ import style from './NavBar.module.css'
 import SearchBar from "../SearchBar/SearchBar";
 import Filter from "../Filter/Filter";
 import { NavLink } from "react-router-dom";
+import Sorter from "../Sorter/Sorter";
 
 export default function NavBar (){
     return (
@@ -11,6 +12,7 @@ export default function NavBar (){
                 <li>
                     <NavLink to="/home" className={({isActive}) => isActive ? style.active: style.inactive}>Home</NavLink>
                 </li>
+                <Sorter/>
                 <SearchBar/>
                 <Filter/>
                 <li>

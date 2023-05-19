@@ -5,6 +5,8 @@ export const GET_DIETS = 'GET_DIETS'
 // export const POST_RECIPE = 'POST_RECIPE'
 export const GET_RECIPES_QUERY = 'GET_RECIPES_QUERY'
 export const GET_RECIPES_BY_DIET = 'GET_RECIPES_BY_DIET'
+export const ORDERED_BY_NAME = 'ORDERED_BY_NAME'
+export const ORDERED_BY_SCORE = 'ORDERED_BY_SCORE'
 
 export const getRecipes = () => {
     return function(dispatch){
@@ -45,6 +47,15 @@ export const getRecipeQuery = (search) => {
             .then((data) => dispatch({type: GET_RECIPES_QUERY, payload: data}))
     }
 }
+
+export const orderedByName = (value) => {
+    return { type: ORDERED_BY_NAME, payload: value }
+}
+
+export const orderedByScore = (value) => {
+    return { type: ORDERED_BY_SCORE, payload: value }
+}
+
 
 //ACTION PARA POST RECIPE//ACTUALMENTE EN EL COMPONENTE 
 // export const postRecipe = (recipeData) => {

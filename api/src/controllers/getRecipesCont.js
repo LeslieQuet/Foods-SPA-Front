@@ -20,25 +20,27 @@ const recipesGetter = async (search) => {
     if(!search) {
 
         const dbRecipesOk = dbRecipes.map(recipe => {
-            const {id, name, image} = recipe;
+            const {id, name, image, health_score} = recipe;
             
             const recipeOk = {
                 id,
                 name,
                 image,
+                health_score,
             };
             
             return recipeOk;
         })
         
-        const apiRecipes100 = await axios.get(`${URL_API}/complexSearch?apiKey=${KEY}&number=100`)
+        const apiRecipes100 = await axios.get(`${URL_API}/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=100`)
         const apiRecipes100ok = apiRecipes100.data.results.map(recipe => {
-            const {id, title, image} = recipe;
+            const {id, title, image, healthScore} = recipe;
             
             const recipeOk = {
                 id,
                 name: title,
                 image,
+                health_score: healthScore,
             };
             
             return recipeOk;
