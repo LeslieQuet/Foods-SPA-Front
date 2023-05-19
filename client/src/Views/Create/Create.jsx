@@ -1,11 +1,11 @@
 import React from 'react'
 import style from './Create.module.css'
-import CreateForm from '../../Components/CreateForm/CreateForm'
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getDiets, postRecipe } from '../../Redux/actions'
+import CreateForm from '../../Components/CreateForm/CreateForm'
 import axios from 'axios'
-
 import validate from './Validations'
 
 export default function Create(){ 
@@ -35,7 +35,6 @@ export default function Create(){
     
         setInputValues({ ...inputValues, [property]: value });
         validate({...inputValues, [property]: value }, property, errors, setErrors);
-        console.log(inputValues)
     }
 
 
@@ -56,15 +55,15 @@ export default function Create(){
         validate({ ...inputValues, diets: inputValues.diets.concat(value)}, property, errors, setErrors);
     }
 
+    const navigate = useNavigate();
+
     const onSubmit = async (e)=>{
         e.preventDefault()
-        console.log(inputValues)
         // dispatch(postRecipe(inputValues))
         await axios
         .post(`http://localhost:3001/recipes`, inputValues)
         .then((res)=> alert(res.data))
         .catch((error)=> (error.response.data.message))
-        // alert("Recipe added to the recipe book")
         setInputValues({
             name: "",
             summary: "",
@@ -73,6 +72,7 @@ export default function Create(){
             image: "",
             diets: []
         })
+        navigate('/home');
     }
 
     return(

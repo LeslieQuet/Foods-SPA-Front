@@ -3,7 +3,7 @@ export const GET_RECIPES = 'GET_RECIPES'
 export const GET_DETAIL = 'GET_DETAIL'
 export const GET_DIETS = 'GET_DIETS'
 // export const POST_RECIPE = 'POST_RECIPE'
-// export const GET_RECIPES_QUERY = 'GET_RECIPES_QUERY'
+export const GET_RECIPES_QUERY = 'GET_RECIPES_QUERY'
 
 export const getRecipes = () => {
     return function(dispatch){
@@ -26,6 +26,14 @@ export const getDiets = () => {
         fetch(`http://localhost:3001/diets`)
             .then((res) => res.json())
             .then((data) => dispatch({type: GET_DIETS, payload: data}))
+    }
+}
+
+export const getRecipeQuery = (search) => {
+    return function(dispatch){
+        fetch(`http://localhost:3001/recipes?search=${search}`)
+            .then((res) => res.json())
+            .then((data) => dispatch({type: GET_RECIPES_QUERY, payload: data}))
     }
 }
 

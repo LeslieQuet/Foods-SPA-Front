@@ -4,12 +4,14 @@ import Detail from './Views/Detail/Detail';
 import Create from './Views/Create/Create';
 // import About from './Views/About/About';
 import {Route, Routes, Link, useLocation} from "react-router-dom"
+import NavBar from './Components/NavBar/NavBar';
 
 function App() {
    const { pathname } = useLocation();
 
   return (
     <div className="App">
+        <NavBar/>
       {pathname === "/" && <Link to="/home">
         <button>Ir a las recetas</button>
       </Link>}

@@ -2,7 +2,6 @@
     background-color: orange;
     padding: 1em;
     border-radius: 25px; 
-
 }
 
 .text{
@@ -11,29 +10,42 @@
     font-weight: bold;
 }
 
-.searchInput{
+.inputMin{
+    text-align: center;
     border: 0px;
     border-radius: 15px; 
-    width: 85%;
+    width: 95%;
     height: 3vh;
     margin: 5px;
-    padding: 5px;
+    outline: none;
+}
+
+.inputTextMax{
+    font-family: arial, verdana, ms sans serif;
+    text-align: center;
+    border: 0px;
+    border-radius: 15px; 
+    width: 95%;
+    height: 10vh;
+    margin: 3px;
+    outline: none;
 }
 
 .error{
     color: rgb(183, 25, 25);
     font-size: smaller;
+    margin-top: 0;
+    margin-bottom: 1em;
 }
 
 .xButton{
     text-decoration: none;
-    justify-self: center;
     border: none;
     margin: 15px;
     padding: 10px;
     width: fit-content;
     height: fit-content;
-    background-color: #00ff77; 
+    background-color: #1bef4d; 
     border-radius: 15%;
     font-weight: bold;
     transition: 0.5s;
