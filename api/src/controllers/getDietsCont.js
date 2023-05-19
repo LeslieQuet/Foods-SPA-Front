@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { URL_API, KEY } = process.env
 const axios = require('axios')
-const {Diet} = require('../db')
+const {Diet, Recipe} = require('../db')
 
 const dietsGetter = async (diet) => {
     try{
@@ -13,10 +13,58 @@ const dietsGetter = async (diet) => {
     }
 };
 
-///Qué hace si recibe query?????
+
 const dietsManager = async (diet) => {
-    //Si recibe query busca por Dieta
-    if(diet){}
+    
+    //Si recibe query filtra las recetas por dieta
+    if(diet){
+        //Trae todas las recetas de la BD y arma objetos para el front
+        const dbRecipes = await Recipe.findAll({
+        include: {
+            model: Diet,
+            attributes: ['name'],
+            through: {
+                attributes: [],
+            },
+        }
+        })
+        
+        const dbRecipesOk = dbRecipes.map(recipe => {
+            const {id, name, image, diets} = recipe;
+            
+                       
+            const recipeOk = {
+                id,
+                name,
+                image,
+                diets: recipe.diets.map(diet => diet.name),
+            };
+            
+            return recipeOk;
+        })
+
+        const apiRecipes100 = await axios.get(`${URL_API}/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=100`)
+        const apiRecipes100ok = apiRecipes100.data.results.map(recipe => {
+            const {id, title, image, diets} = recipe;
+            
+            const recipeOk = {
+                id,
+                name: title,
+                image,
+                diets,
+            };
+            
+            return recipeOk;
+        })
+
+        const allRecipes = dbRecipesOk.concat(apiRecipes100ok);
+        const findedRecipes = allRecipes.filter(recipe => recipe.diets.includes(diet));
+        
+        if (!findedRecipes.length) throw new Error('No hay recetas para esta dieta');
+        return findedRecipes; 
+    }
+    
+
 
     //Si la BD tiene dietas las envía [{name + id}]
     const DBDiets = await Diet.findAll();

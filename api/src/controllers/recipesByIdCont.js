@@ -19,7 +19,6 @@ const recipesById = async(idRecipe) => {
         const dietArray = dbRecipe.diets.map(diet => diet.name);
         dbRecipe.dataValues.diets = dietArray;
         
-        console.log(dbRecipe.dataValues)
         return dbRecipe.dataValues;
     }
 

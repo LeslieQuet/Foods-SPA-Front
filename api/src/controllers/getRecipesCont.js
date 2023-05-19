@@ -82,7 +82,7 @@ const recipesGetter = async (search) => {
     
     //Concatena resultados filtrados de api y bd y si hubieron coincidencias los retonra
     const allRecipesByName = apiRecipesOk.concat(recipesOk)
-    if(!allRecipesByName.length) throw new Error ('No hay concidencias de recetas')
+    if(!allRecipesByName.length) throw new Error ('No recipes match the search')
     return allRecipesByName;
 }
 
