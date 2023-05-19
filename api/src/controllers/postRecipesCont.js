@@ -2,7 +2,7 @@ const {Recipe} = require('../db')
 
 //mejorar validaciones db
 const recipesPoster = async (name, image, resume, health_score, step_by_step, diets) => {
-        if(!name, !image, !resume, !health_score, !step_by_step, !diets.length) throw new Error ('Faltan datos necesarios') 
+        if(!name, !image, !resume, !health_score, !step_by_step, !diets.length) throw new Error ('Missing obligatory data') 
         const newRecipe = await Recipe.create({name, image, resume, health_score, step_by_step});
         newRecipe.addDiet(diets);
         return newRecipe;

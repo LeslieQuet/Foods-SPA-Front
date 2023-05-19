@@ -22,11 +22,11 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     health_score: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     step_by_step: {
-      type: DataTypes.ARRAY(DataTypes.STRING(400)),
+      type:  DataTypes.STRING(750),
       allowNull: false,
     },
   }, 

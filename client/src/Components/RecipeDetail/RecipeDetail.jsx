@@ -16,12 +16,6 @@ export default function RecipeDetail ({id, name, image, resume, health_score, st
             <div>{diets}</div>
             <img src={image} alt={name} className={style.img}/>
             <div>{step_by_step}</div>
-            {/* <ol>
-                <h3>Paso a paso: </h3>
-                {step_by_step.map(step=>{
-                    return <li className={style.li} key={step}>{step}</li>
-                })}         
-            </ol> */}
         </div>
     </div>
     )

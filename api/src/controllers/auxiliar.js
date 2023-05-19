@@ -14,11 +14,13 @@ const recipeRequested = (recipe) => {
             analyzedInstructions[0].steps.forEach(step => stepsOk.push(step.step))
         }
 
+        console.log(stepsOk)
+
         let recipeOk = {
             id,
             name: title,
             image,
-            resume: summary,
+            resume: summary.replace(/<[^>]*>?/g, ""),
             health_score: healthScore,
             step_by_step: stepsOk,
             diets: dietsArr,

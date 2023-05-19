@@ -18,7 +18,7 @@ function validate(inputValue, property, errors, setErrors){
 
     if(property === "resume"){
         if(inputValue.resume !== "") {
-            if (inputValue.resume.length > 399) setErrors({ ...errors, resume: "Must not exceed 400 characters" });
+            if (inputValue.resume.length > 400) setErrors({ ...errors, resume: "Must not exceed 400 characters" });
             else setErrors({...errors, resume:""});
         }
         else setErrors({...errors, resume: "Insert a text up to 400 characters, the field must not be empty"});
@@ -32,8 +32,18 @@ function validate(inputValue, property, errors, setErrors){
         else setErrors({...errors, health_score: "Insert a numeric value, the field must not be empty"});
     }
 
-
-
+    if(property === "step_by_step"){
+        if(inputValue.step_by_step !== "") {
+            if (inputValue.step_by_step.length > 1100) setErrors({ ...errors, step_by_step: "Must not exceed 750 characters" });
+            else setErrors({...errors, step_by_step:""});
+        }
+        else setErrors({...errors, step_by_step: "Insert each steps in a paragraph, text up to 750 characters total, the field must not be empty"});
+    }
+    
+    if(property === "diets"){
+        if(inputValue.diets) setErrors({...errors, diets:""});
+        else setErrors({...errors, diets: "Must select at least one diet"});
+    }
 }
 
 export default validate;

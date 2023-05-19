@@ -24,3 +24,23 @@
     color: rgb(183, 25, 25);
     font-size: smaller;
 }
+
+.xButton{
+    text-decoration: none;
+    justify-self: center;
+    border: none;
+    margin: 15px;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    background-color: #00ff77; 
+    border-radius: 15%;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.xButton:hover{
+    cursor: pointer;
+    background-color: rgb(66, 255, 242);
+    box-shadow: 6px 7px 22px -3px rgba(0,0,0,0.72);
+}
