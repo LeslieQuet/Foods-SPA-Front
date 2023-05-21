@@ -3,10 +3,10 @@ import style from './Create.module.css'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getDiets, postRecipe } from '../../Redux/actions'
+import { getDiets } from '../../Redux/actions'
 import CreateForm from '../../Components/CreateForm/CreateForm'
-import axios from 'axios'
 import validate from './Validations'
+import axios from 'axios'
 
 export default function Create(){ 
 
@@ -15,7 +15,7 @@ export default function Create(){
         name: "",
         image: "",
         resume: "",
-        health_score: "",
+        health_score: 0,
         step_by_step: "",
         diets: [],
     });
@@ -45,7 +45,7 @@ export default function Create(){
     
     useEffect(()=>{
         if(!diets.length) dispatch(getDiets());
-    }, []);
+    }, [dispatch, diets.length]);
 
     const handleDiets = (e)=>{
         const property = e.target.name;
@@ -55,24 +55,32 @@ export default function Create(){
         validate({ ...inputValues, diets: inputValues.diets.concat(value)}, property, errors, setErrors);
     }
 
+
+    //On Submit envía la información del estado a la ruta del post
     const navigate = useNavigate();
 
     const onSubmit = async (e)=>{
-        e.preventDefault()
-        // dispatch(postRecipe(inputValues))
-        await axios
-        .post(`http://localhost:3001/recipes`, inputValues)
-        .then((res)=> alert(res.data))
-        .catch((error)=> (error.response.data.message))
+            e.preventDefault()
+
+        const response = await axios.post('http://localhost:3001/recipes', inputValues)
+        const newRecipe = response.data;
+
         setInputValues({
             name: "",
             summary: "",
-            healthScore: "",
+            healthScore: 0,
             step_by_step: "",
             image: "",
             diets: []
         })
-        navigate('/home');
+
+        if(newRecipe.error){
+            alert((`Error trying to create new recipe: ${response.error}`)) //Alerta adicional por si algún error pasa las validaciones del form
+        }
+        else{
+            alert("Recipe saved successfully");
+            navigate(`/recipe/${newRecipe.id}`);
+        }        
     }
 
     return(

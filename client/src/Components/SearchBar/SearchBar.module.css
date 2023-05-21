@@ -1,4 +1,33 @@
-.SearchBar{
+
+.searchContainer{
+    width: fit-content;
+    display: inline-block;
+    margin: 1vh 3vh;
+}
+
+.searchInput{
+    padding: 1vh;
+    border: 0;
+    height: 4.4vh;
+    margin: 15px;
+}
+
+.searchButton{
+    padding: 1vh;
+    font-family: Burglar;
+    font-weight: 100;
+    font-size: 4vh;
+    background-color: white;
+    cursor: pointer;
+    border: 0;
+}
+
+.searchButton:hover{
+    box-shadow: -5px -5px 5px #070707;
+    padding: 2vh;
+  }
+
+/* .SearchBar{
     width: fit-content;
     background-color: orange;
 }
@@ -24,4 +53,4 @@
     border: 0px;
     border-radius: 15px 0px 0px 15px; 
     height: 6vh;
-}
+} */

@@ -6,7 +6,9 @@ module.exports = async(req, res) => {
         const matchedRecepies = await recepiesGetter(search);
         res.status(200).json(matchedRecepies);
     }
-    catch(err){
-        res.status(400).json({err: err.message})
+    catch(error){
+        console.log(error)
+        res.status(400).send(error.message)
+        // res.status(400).json({error:error.message})
     }
 }

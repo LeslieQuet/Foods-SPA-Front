@@ -6,7 +6,7 @@ module.exports = async(req, res) => {
         const dietsOrRecipes = await dietsGetter(diet);
         res.status(200).json(dietsOrRecipes)
       }
-      catch(err){
-        res.status(400).json({err: err.message})
+      catch(error){
+        res.status(400).json({error: error.message})
       }
 }

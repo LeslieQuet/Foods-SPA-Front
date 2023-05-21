@@ -12,7 +12,7 @@ export default function Filter(){
     
     useEffect(()=>{
         if(!diets.length) dispatch(getDiets());
-    }, []);
+    }, [dispatch, diets.length]);
 
     const handleSelect = (event)=>{
         dispatch(getRecipesByDiet(event.target.value))
@@ -20,7 +20,7 @@ export default function Filter(){
 
     return(
         <div className={style.Filter}>
-            <select name="diets" onChange={handleSelect}>
+            <select name="diets" onChange={handleSelect} className={style.text}>
                 <option value="default">Choose a diet to filter</option>
                 {diets?.map((diet) => (
                     <option value={diet.name} key={diet.id}>

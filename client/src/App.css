@@ -1,13 +1,84 @@
+@font-face {
+  font-family: Burglar;
+  src: url(./Assets/Fonts/Burglar.ttf);
+}
+
+@font-face {
+  font-family: Cleandro;
+  src: url(./Assets/Fonts/Cleandro.ttf);
+}
+
 .App{
   width: 100%;
   min-height: 100vh;
-  text-align: center;
   background-image: url("./Assets/Img/fondo1.jpg");
   background-attachment: fixed;
   background-size:cover;
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.h1{
+  font-family: Burglar;
+  font-size: 15vh;
+  color: white;
+  text-shadow: -8px -5px 10px #070707;
+}
+
+.subtitles{
+  text-align: center;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3vh;
+  width: 10em;
+  border-radius: 20%;
+}
+
+.h2{
+  font-family: Cleandro;
+  font-size: 18px;
+  color: white;
+  text-shadow: -2px -2px 2px #070707;
+  letter-spacing: 3px;
+}
+
+.h3{
+  color: white;
+  font-size: 12px;
+  color: white;
+  text-shadow: -0px -0px 2px #070707;
+}
+
+.button{
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  font-family: Cleandro;
+  font-size: 5vh;
+  width: 9em;
+  height: 4em;
+  background-color: white;
+  border: none;
+  border-radius: 18%;
+  box-shadow: -5px -5px 10px #070707;
+}
+
+.button:hover{
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  font-family: Cleandro;
+  font-size: 6vh;
+  width: 9em;
+  height: 4em;
+  background-color: white;
+  box-shadow: -5px -5px 10px #070707;
+  border: none;
+  border-radius: 18%;
+  box-shadow: -7px -7px 10px #070707;
 }
 
 /* .App-logo {

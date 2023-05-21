@@ -18,7 +18,7 @@ export default function Sorter() {
 
     return(
         <div className={style.sorter}>
-            <select name="sorter" onChange={handleSelection}>
+            <select name="sorter" onChange={handleSelection} className={style.text}>
                 <option value="default">Order by name or health score</option>
                 <option value="1" >Order A-Z</option>
                 <option value="2">Order Z-A</option>

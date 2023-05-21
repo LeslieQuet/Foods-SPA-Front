@@ -1,9 +1,6 @@
 import React from "react";
 import style from './NavBar.module.css'
-import SearchBar from "../SearchBar/SearchBar";
-import Filter from "../Filter/Filter";
 import { NavLink } from "react-router-dom";
-import Sorter from "../Sorter/Sorter";
 
 export default function NavBar (){
     return (
@@ -12,9 +9,10 @@ export default function NavBar (){
                 <li>
                     <NavLink to="/home" className={({isActive}) => isActive ? style.active: style.inactive}>Home</NavLink>
                 </li>
-                <Sorter/>
-                <SearchBar/>
-                <Filter/>
+                <li>
+                    <NavLink to="/recipe/create" className={({isActive}) => isActive ? style.active: style.inactive}>Crear una nueva receta</NavLink>
+                    {/* <Link to={"/recipe/create"} className={style.button}>Crear una nueva receta</Link> */}
+                </li>
                 <li>
                     <NavLink to="/about" className={({isActive}) => isActive ? style.active: style.inactive}>About</NavLink>                    
                 </li>

@@ -1,6 +1,12 @@
-.h3{
+.name{
+    font-family: Cleandro;
+    font-size: 5vh;
+}
+
+.info{
     display: inline-block;
     margin: 1em;
+    font-size: 3vh;
 }
 
 .img{
@@ -8,17 +14,24 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
+    margin-top: 20px;
     border-radius: 15%;
     box-sizing: content-box;
     width: 50%;
 }
 
-.xButton{
-    font-weight: bolder;
-    margin-top: 15px;
+.text{
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    text-align: justify;
 }
 
-.li{
-    /* text-decoration: none; */
-    display: block;
+.xButton{
+    font-weight: bolder;
+    font-size: 2vh;
+    padding: 2vh;
+    margin-top: 15px;
+    background-color: rgb(255, 94, 0);
+    border: none;
 }

@@ -1,4 +1,12 @@
 .Filter{
-    padding: 1rem;
+    padding: 1 em;
     display: inline-block;
+    margin: 1vh 3vh;
+}
+
+.text{
+    padding: 1vh;
+    font-family: Burglar;
+    font-size: 4vh;
+    font-weight: 100;
 }

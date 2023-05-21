@@ -31,7 +31,7 @@ export default function CreateForm({handleInputChange, errors, diets, handleDiet
             </div>
             <div>
                 <label htmlFor="health_score" className={style.text}>Health score: </label>
-                <input type="text" name="health_score" placeholder="Insert nutritional value" className={style.inputMin} onChange={handleInputChange}></input>
+                <input type="number" name="health_score" placeholder="Insert nutritional value" className={style.inputMin} onChange={handleInputChange}></input>
                 <p className={style.error}>{errors.health_score}</p>
             </div>
             <div>
@@ -40,7 +40,7 @@ export default function CreateForm({handleInputChange, errors, diets, handleDiet
                 <p className={style.error}>{errors.step_by_step}</p>
             </div>
             <p className={style.text}>Select diets:</p>
-            <select name="diets" onChange={handleDiets}>
+            <select name="diets" onChange={handleDiets} required="true">
                 <option value="default">Choose a diet or diets</option>
                 {diets?.map((item) => (
                     <option value={item.id} key={item.id}>

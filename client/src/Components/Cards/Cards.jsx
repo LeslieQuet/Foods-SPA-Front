@@ -12,8 +12,9 @@ export default function Cards({indexOfFirstPost, indexOfLastPost}){
     const dispatch = useDispatch();
     
     useEffect(()=>{
-        dispatch(getRecipes());
-    }, []);
+        if(!recipes.length) dispatch(getRecipes());
+    }, [dispatch, recipes.length]);
+
 
     const currentPosts = recipes.slice(indexOfFirstPost, indexOfLastPost);
    
@@ -26,6 +27,7 @@ export default function Cards({indexOfFirstPost, indexOfLastPost}){
                     name={recipe.name}
                     image={recipe.image}
                     health_score={recipe.health_score}
+                    diets={recipe.diets}
                     />;
                 })}
         </div>

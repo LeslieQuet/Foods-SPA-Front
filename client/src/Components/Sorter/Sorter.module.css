@@ -1,4 +1,13 @@
 .sorter{
-    padding: 1rem;
+    font-family: Burglar;
+    font-weight: 100;
     display: inline-block;
+    margin: 1vh 3vh;
+}
+
+.text{
+    padding: 1vh;
+    font-family: Burglar;
+    font-size: 4vh;
+    font-weight: 100;
 }

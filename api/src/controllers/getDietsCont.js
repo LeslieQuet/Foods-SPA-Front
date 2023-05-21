@@ -3,6 +3,7 @@ const { URL_API, KEY } = process.env
 const axios = require('axios')
 const {Diet, Recipe} = require('../db')
 
+//Controlador exportado
 const dietsGetter = async (diet) => {
     try{
         const allDiets = await dietsManager(diet);
@@ -13,26 +14,26 @@ const dietsGetter = async (diet) => {
     }
 };
 
-
+//función auxiliar
 const dietsManager = async (diet) => {
     
     //Si recibe query filtra las recetas por dieta
     if(diet){
-        //Trae todas las recetas de la BD y arma objetos para el front
+        //Trae todas las recetas de la BD y arma objetos para render
         const dbRecipes = await Recipe.findAll({
-        include: {
-            model: Diet,
-            attributes: ['name'],
-            through: {
-                attributes: [],
-            },
-        }
+            include: {
+                model: Diet,
+                attributes: ['name'],
+                through: {
+                    attributes: [],
+                },
+            }
         })
         
         const dbRecipesOk = dbRecipes.map(recipe => {
             const {id, name, image, diets} = recipe;
             
-                       
+            
             const recipeOk = {
                 id,
                 name,
@@ -42,7 +43,8 @@ const dietsManager = async (diet) => {
             
             return recipeOk;
         })
-
+        
+        //Trae todas las recetas de la API y arma objetos para render
         const apiRecipes100 = await axios.get(`${URL_API}/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=100`)
         const apiRecipes100ok = apiRecipes100.data.results.map(recipe => {
             const {id, title, image, diets} = recipe;
@@ -57,6 +59,7 @@ const dietsManager = async (diet) => {
             return recipeOk;
         })
 
+        //Concatena ambas busquedas, filtra conincidencias y devuelve
         const allRecipes = dbRecipesOk.concat(apiRecipes100ok);
         const findedRecipes = allRecipes.filter(recipe => recipe.diets.includes(diet));
         
@@ -71,7 +74,7 @@ const dietsManager = async (diet) => {
     if (DBDiets.length >= 1) return DBDiets;
 
     //Si la BD no tiene dietas las trae de la Api y los Bulkea en la tabla de la BD
-    const apiData = await axios.get(`${URL_API}/complexSearch?apiKey=${KEY}&addRecipeInformation=true`);
+    const apiData = await axios.get(`${URL_API}/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=100`);
     const recipesData = apiData.data;
 
     const dietsSet = new Set();

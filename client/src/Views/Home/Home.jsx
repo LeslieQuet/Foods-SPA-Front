@@ -5,7 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getRecipes } from '../../Redux/actions';
 import Cards from '../../Components/Cards/Cards'
 import Pagination from '../../Components/Pagination/Pagination';
-import { Link } from 'react-router-dom';
+import SearchBar from '../../Components/SearchBar/SearchBar';
+import Sorter from '../../Components/Sorter/Sorter';
+import Filter from '../../Components/Filter/Filter';
 
 export default function Home(){
     
@@ -23,12 +25,16 @@ export default function Home(){
 
     return(
     <div className={style.HomeContainer}>
-        <section className={style.buttonsContainer}>
-            <button className={style.button} onClick={()=>{dispatch(getRecipes())}}>Volver a todas las recetas</button>
-            <Link to={"/recipe/create"} className={style.createButton}>Crear una nueva receta</Link>
-        </section>
+        <div className={style.menu}> 
+                <Sorter/>
+                <Filter/>
+                <SearchBar/>
+                <button className={style.buttonAllRecipes} onClick={()=>{dispatch(getRecipes())}}>Volver a todas las recetas</button>
+        </div>
+        <div>
+            <Cards indexOfFirstPost={indexOfFirstPost} indexOfLastPost={indexOfLastPost} />
+        </div>
         <Pagination postPerPage={postPerPage} totalPosts={recipes.length} paginate={paginate}/>
-        <Cards indexOfFirstPost={indexOfFirstPost} indexOfLastPost={indexOfLastPost} />
     </div>
     )
 }
