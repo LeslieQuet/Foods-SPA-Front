@@ -2,7 +2,10 @@ import React from 'react'
 import style from './RecipeDetail.module.css'
 import { Link } from 'react-router-dom'
 
+
+
 export default function RecipeDetail ({id, name, image, resume, health_score, step_by_step, diets}){
+
     return(
         <div>
             <Link to="/home" >
@@ -14,6 +17,7 @@ export default function RecipeDetail ({id, name, image, resume, health_score, st
                 <div className={style.info}>Diets: {diets}</div>
                 <p className={style.text}>{resume}</p>
                 <img src={image} alt={name} className={style.img}/>
+                <h3>Instructions</h3>
                 <div className={style.text}>{step_by_step}</div>
                 <p className={style.info}>Id: {id}</p>
             </div>

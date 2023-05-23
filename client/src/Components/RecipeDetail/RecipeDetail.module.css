@@ -1,6 +1,7 @@
 .name{
-    font-family: Cleandro;
+    font-family: Burglar;
     font-size: 5vh;
+    letter-spacing: 3px;
 }
 
 .info{
@@ -28,10 +29,12 @@
 }
 
 .xButton{
-    font-weight: bolder;
-    font-size: 2vh;
-    padding: 2vh;
-    margin-top: 15px;
+    border-radius: 10px;
     background-color: rgb(255, 94, 0);
-    border: none;
+    border: 3px solid #fff;
+    font-size: 2vh;
+    font-weight: bolder;
+    padding: 8px;
+    margin-top: 15px;
+    cursor: pointer;
 }

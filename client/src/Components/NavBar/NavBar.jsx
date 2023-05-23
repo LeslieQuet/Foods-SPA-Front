@@ -11,7 +11,6 @@ export default function NavBar (){
                 </li>
                 <li>
                     <NavLink to="/recipe/create" className={({isActive}) => isActive ? style.active: style.inactive}>Crear una nueva receta</NavLink>
-                    {/* <Link to={"/recipe/create"} className={style.button}>Crear una nueva receta</Link> */}
                 </li>
                 <li>
                     <NavLink to="/about" className={({isActive}) => isActive ? style.active: style.inactive}>About</NavLink>                    

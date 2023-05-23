@@ -6,6 +6,8 @@ export const GET_RECIPES_QUERY = 'GET_RECIPES_QUERY'
 export const GET_RECIPES_BY_DIET = 'GET_RECIPES_BY_DIET'
 export const ORDERED_BY_NAME = 'ORDERED_BY_NAME'
 export const ORDERED_BY_SCORE = 'ORDERED_BY_SCORE'
+export const RESET_FILTERS = 'RESET_FILTERS'
+export const RESET_ALL_RECIPES = 'RESET_ALL_RECIPES'
 
 export const getRecipes = () => {
     return async function(dispatch){
@@ -19,6 +21,14 @@ export const getRecipes = () => {
             alert(error.message)
         }
     }
+}
+
+export const resetFilters = () => {
+    return {type: RESET_FILTERS}
+}
+
+export const resetAllRecipes = () => {
+    return {type: RESET_ALL_RECIPES}
 }
 
 export const getDetail = (id) => {
@@ -47,22 +57,13 @@ export const getRecipesByDiet = (diet) => {
 
 export const getRecipeQuery = (search) => {
     return async function(dispatch){
-        try{
-            const response = await (await fetch(`http://localhost:3001/recipes?search=${search}`)).json()
-            const recipesByName = response.data
-            console.log(response)
-            console.log(recipesByName)
-            // dispatch({type: GET_RECIPES_QUERY, payload: recipesByName})
-            // .then((res) => res.json())
-            // .then((data) => dispatch({type: GET_RECIPES_QUERY, payload: data}))
-        }
-        catch(error){
-            console.log("Hubo un error")
-            console.log(error.message)
+        const response = await (await fetch(`http://localhost:3001/recipes?search=${search}`)).json()
+        if(response.error) alert("No recipes match, verify that the search has been made in all recipes")
+        else { 
+            dispatch({type: GET_RECIPES_QUERY, payload: response})
         }
     }
 }
-
 
 export const orderedByName = (value) => {
     return { type: ORDERED_BY_NAME, payload: value }
@@ -73,6 +74,8 @@ export const orderedByScore = (value) => {
 }
 
 
+
+//POST DATA . ahora se hace desde el componente
 // export const postRecipe = (recipeData) => {
 //     return async function (dispatch){
 //         const response = await postData(recipeData);

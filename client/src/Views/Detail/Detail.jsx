@@ -17,7 +17,7 @@ export default function Detail(){
     }, [dispatch, ID]);
 
     const {name, image, resume, health_score, step_by_step, diets} = recipeDetail;
-
+    
     return(
         <div className={style.detailBox}> 
             <RecipeDetail

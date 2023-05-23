@@ -1,16 +1,19 @@
-import style from './Pagination.module.css'
+import React from 'react';
+import { useState } from 'react';
+import style from './Pagination.module.css';
+
 
 export default function Pagination({postPerPage, totalPosts, paginate}) {
     
     const pageNumbers = [];
 
-
     for(let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++){
         pageNumbers.push(i);
     }
+
     
     return (
-        <div>
+        <div className={style.Container}>
             <ul className={style.ulContainer}>
                 {pageNumbers.map(number => {
                     return (

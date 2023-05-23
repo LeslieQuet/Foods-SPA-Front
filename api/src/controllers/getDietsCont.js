@@ -2,6 +2,7 @@ require('dotenv').config()
 const { URL_API, KEY } = process.env
 const axios = require('axios')
 const {Diet, Recipe} = require('../db')
+const {recipeRequestedDB, recipeRequestedAPI} = require('./auxiliar')
 
 //Controlador exportado
 const dietsGetter = async (diet) => {
@@ -30,33 +31,15 @@ const dietsManager = async (diet) => {
             }
         })
         
+        //Arma objetos con info de la BD
         const dbRecipesOk = dbRecipes.map(recipe => {
-            const {id, name, image, diets} = recipe;
-            
-            
-            const recipeOk = {
-                id,
-                name,
-                image,
-                diets: recipe.diets.map(diet => diet.name),
-            };
-            
-            return recipeOk;
+            return recipeRequestedDB(recipe);
         })
         
-        //Trae todas las recetas de la API y arma objetos para render
+        //Trae todas las recetas de la API y arma objetos
         const apiRecipes100 = await axios.get(`${URL_API}/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=100`)
         const apiRecipes100ok = apiRecipes100.data.results.map(recipe => {
-            const {id, title, image, diets} = recipe;
-            
-            const recipeOk = {
-                id,
-                name: title,
-                image,
-                diets,
-            };
-            
-            return recipeOk;
+            return recipeRequestedAPI(recipe);
         })
 
         //Concatena ambas busquedas, filtra conincidencias y devuelve

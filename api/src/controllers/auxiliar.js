@@ -35,7 +35,7 @@ const recipeRequestedDB = (recipe) => {
 
             //Diets viene en un arreglo de objetos, se pasa arreglo de strings
             const dietsArray = diets.map(diet => diet.name);
-
+            
             const recipeOk = {
                 id,
                 name,

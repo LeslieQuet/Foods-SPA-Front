@@ -4,7 +4,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { useEffect } from "react";
 import { getDiets, getRecipesByDiet } from "../../Redux/actions";
 
-export default function Filter(){
+export default function Filter({setCurrentPage}){
 
     const diets = useSelector(state => state.diets)
 
@@ -12,14 +12,16 @@ export default function Filter(){
     
     useEffect(()=>{
         if(!diets.length) dispatch(getDiets());
-    }, [dispatch, diets.length]);
+    }, [dispatch, diets]);
 
     const handleSelect = (event)=>{
-        dispatch(getRecipesByDiet(event.target.value))
+        const {value} = event.target
+        dispatch(getRecipesByDiet(value))
+        setCurrentPage(1)
     }
 
     return(
-        <div className={style.Filter}>
+        <div>
             <select name="diets" onChange={handleSelect} className={style.text}>
                 <option value="default">Choose a diet to filter</option>
                 {diets?.map((diet) => (

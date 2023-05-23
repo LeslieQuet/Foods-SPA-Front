@@ -2,7 +2,7 @@ import './App.css'
 import Home from './Views/Home/Home'
 import Detail from './Views/Detail/Detail'
 import Create from './Views/Create/Create'
-// import About from './Views/About/About';
+import About from './Views/About/About';
 import {Route, Routes, Link, useLocation} from "react-router-dom"
 import NavBar from './Components/NavBar/NavBar'
 
@@ -24,7 +24,7 @@ function App() {
         <Route path="/home" element={<Home/>} />
         <Route path="/recipe/:ID" element= {<Detail/>}/>
         <Route path="/recipe/create" element= {<Create/>}/>
-        {/* <Route path= "/about" element= {<About/>}/> */}
+        <Route path= "/about" element= {<About/>}/>
       </Routes>
     </div>
   )
