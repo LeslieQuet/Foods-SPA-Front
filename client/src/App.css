@@ -1,6 +1,11 @@
 @font-face {
-  font-family: Burglar;
+font-family: Burglar;
   src: url(./Assets/Fonts/Burglar.ttf);
+}
+
+@font-face {
+font-family: Smalline;
+  src: url(./Assets/Fonts/Smalline.otf);
 }
 
 .App{
@@ -50,31 +55,18 @@
 }
 
 .button{
-  font-family:Verdana, Tahoma, sans-serif;
-  position: fixed;
-  top: 50%;
-  left: 40%;
-  font-size: 5vh;
-  width: 9em;
-  height: 4em;
+  font-family: Smalline;
+  font-size: 4vw;
+  margin-top: 35%;
+  padding: 3vw;
   background-color: white;
   border: none;
-  border-radius: 18%;
+  border-radius: 25px;
   box-shadow: -5px -5px 10px #070707;
 }
 
 .button:hover{
-  position: fixed;
-  top: 50%;
-  left: 40%;
-  font-size: 6vh;
-  width: 9em;
-  height: 4em;
-  background-color: white;
-  box-shadow: -5px -5px 10px #070707;
-  border: none;
-  border-radius: 18%;
-  box-shadow: -7px -7px 10px #070707;
+  font-size: 5vw;
 }
 
 /* .App-logo {

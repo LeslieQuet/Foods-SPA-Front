@@ -10,7 +10,7 @@ export default function NavBar (){
                     <NavLink to="/home" className={({isActive}) => isActive ? style.active: style.inactive}>Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/recipe/create" className={({isActive}) => isActive ? style.active: style.inactive}>Crear una nueva receta</NavLink>
+                    <NavLink to="/recipe/create" className={({isActive}) => isActive ? style.active: style.inactive}>Create a new recipe</NavLink>
                 </li>
                 <li>
                     <NavLink to="/about" className={({isActive}) => isActive ? style.active: style.inactive}>About</NavLink>                    

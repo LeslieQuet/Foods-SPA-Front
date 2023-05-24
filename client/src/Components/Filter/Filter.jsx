@@ -17,6 +17,7 @@ export default function Filter({setCurrentPage}){
     const handleSelect = (event)=>{
         const {value} = event.target
         dispatch(getRecipesByDiet(value))
+        event.target.value = "default";
         setCurrentPage(1)
     }
 

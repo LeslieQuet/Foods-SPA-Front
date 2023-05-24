@@ -85,7 +85,7 @@ export default function Create(){
 
     return(
         <div className={style.createContainer}>
-            <h2>Here you can create a recipe</h2>
+            <h2 className={style.title}>Here you can create a recipe</h2>
             <CreateForm 
                 handleInputChange={handleInputChange} 
                 errors={errors} 

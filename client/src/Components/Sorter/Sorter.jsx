@@ -16,6 +16,7 @@ export default function Sorter({setCurrentPage}) {
             dispatch(orderedByName(event.target.value))
         }
         else dispatch(orderedByScore(event.target.value))
+        event.target.value = "default";
         setCurrentPage(1)
     }
 

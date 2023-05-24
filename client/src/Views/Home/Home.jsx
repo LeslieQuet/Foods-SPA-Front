@@ -8,6 +8,7 @@ import Pagination from '../../Components/Pagination/Pagination';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import Sorter from '../../Components/Sorter/Sorter';
 import Filter from '../../Components/Filter/Filter';
+import loader from '../../Assets/Img/Pizza.gif'
 
 export default function Home(){
     
@@ -33,14 +34,19 @@ export default function Home(){
     return(
     <div className={style.HomeContainer}>
         <div className={style.menu}> 
-                <Sorter setCurrentPage={setCurrentPage}/>
                 <Filter setCurrentPage={setCurrentPage}/>
                 <SearchBar setCurrentPage={setCurrentPage}/>
                 <button className={style.buttonAllRecipes} onClick={()=>{dispatch(resetAllRecipes())}}>Back to all recipes</button>
+                <Sorter setCurrentPage={setCurrentPage}/>
         </div>
         <Pagination postPerPage={postPerPage} totalPosts={recipes.length} paginate={paginate}/>
         <div>
-            <Cards currentPosts={currentPosts} />
+            {currentPosts.length? <Cards currentPosts={currentPosts}/>:
+            <div className={style.lContainer}>
+                <img className={style.loaderGif} src={loader} alt="Loader" />
+                <p className={style.loader}>Loading recipes... </p>
+            </div>
+        }
         </div>
     </div>
     )

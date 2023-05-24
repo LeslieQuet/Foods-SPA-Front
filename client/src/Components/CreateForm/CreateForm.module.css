@@ -1,6 +1,7 @@
 .form{
     background-color: orange;
     padding: 1em;
+    margin: 0;
     border-radius: 25px; 
 }
 

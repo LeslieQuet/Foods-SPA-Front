@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 export default function RecipeDetail ({id, name, image, resume, health_score, step_by_step, diets}){
-
+    console.log(diets)
     return(
         <div>
             <Link to="/home" >
@@ -14,7 +14,14 @@ export default function RecipeDetail ({id, name, image, resume, health_score, st
             <div style={{display: 'inline-block', margin: '2em'}}> 
                 <h2 className={style.name}>{name}</h2>
                 <p className={style.info}>Health score: {health_score}</p>
-                <div className={style.info}>Diets: {diets}</div>
+                <div className={style.info}>Diets:{diets}</div>
+                {/* <ul className={style.ulContainer}>
+                {diets.map(diet => {
+                    return (
+                        <li className={style.li} key={diet}>{diet}</li>
+                    )
+                })}
+                </ul> */}
                 <p className={style.text}>{resume}</p>
                 <img src={image} alt={name} className={style.img}/>
                 <h3>Instructions</h3>

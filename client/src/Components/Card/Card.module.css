@@ -1,26 +1,40 @@
 .cardContainer{
-    align-items: center;
     background-color: white;
     display: flex;
     flex-direction: column;
-    margin: 1em;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
     padding: 1em;
     box-shadow: -5px -5px 10px #070707;
     border-radius: 20px;
 }
 
-.text{
-    font-size: 3vh;
-    display: inline-flexbox;
-    color: rgb(254, 0, 0);
+.name{
+    font-family: Smalline;
+    font-size: 4vh;
+    display: inline-block;
     margin: 5px;
 }
 
-.text2{
+.text{
     font-size: 2vh;
-    display: inline-flexbox;
-    color: rgb(254, 0, 0);
-    margin: 5px;
+    display: inline;
+    margin: 4px;
+}
+
+.ulContainer{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.li{
+    display: inline-block;
+    margin: 3px;
+    font-size: 2vh;
+    text-decoration: none;
+    text-align: center;
 }
 
 .img{
@@ -30,17 +44,17 @@
     margin-bottom: 10px;
     border-radius: 15%;
     width: 80%;
-}
+} 
 
 .button{
     display: inline-block;
     text-align: center;
     width: 15vh;
-    height: fit-content;
+    height: 9vh;
     background-color: rgb(255, 94, 0);
     text-decoration: none;
     border: none;
-    margin: 15px;
+    margin: 5px;
     color: white;
     border-radius: 15%;
     transition: 0.5s;

@@ -4,9 +4,22 @@
     letter-spacing: 3px;
 }
 
+.ulContainer{
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+}
+
+.li{
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 3vh;
+    text-decoration: none;
+}
+
 .info{
     display: inline-block;
-    margin: 1em;
+    margin: 0 15px 0 10px;
     font-size: 3vh;
 }
 
@@ -26,6 +39,7 @@
     margin-right: auto;
     width: 85%;
     text-align: justify;
+    margin-bottom: 15px;
 }
 
 .xButton{
