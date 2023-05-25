@@ -6,7 +6,7 @@ export default function Card({id, name, image, health_score, diets}){
         <div className={style.cardContainer}>
             <img className={style.img} src={image} alt={name}/>
             <h2 className={style.name}>{name}</h2>
-            <p className={style.text}>Diets:</p>
+            <p className={style.text}>Diets: </p>
             <ul className={style.ulContainer}>
                 {diets.map(diet => {
                     return (
@@ -14,11 +14,11 @@ export default function Card({id, name, image, health_score, diets}){
                         )
                     })}
             </ul>
-            <p className={style.text}>Health score:{health_score}</p>
+            <p className={style.text}>Health score: {health_score}</p>
             <Link to={`/recipe/${id}`} className={style.button}>
                 <h5>Full recipe</h5>
             </Link>
-            <p className={style.text}>Id:{id}</p>
+            <p className={style.text}>Id: {id}</p>
         </div>
     )
 }

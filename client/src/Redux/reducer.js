@@ -1,4 +1,4 @@
-import {GET_DETAIL, RESET_FILTERS, RESET_ALL_RECIPES, GET_DIETS, GET_RECIPES, GET_RECIPES_BY_DIET, GET_RECIPES_QUERY, ORDERED_BY_NAME, ORDERED_BY_SCORE} from "./actions";
+import {GET_DETAIL, RESET_SORTER, RESET_ALL_RECIPES, GET_DIETS, GET_RECIPES, GET_RECIPES_BY_DIET, GET_RECIPES_QUERY, ORDERED_BY_NAME, ORDERED_BY_SCORE} from "./actions";
 
 const initialState = {
     recipes:[],
@@ -14,7 +14,7 @@ const rootReducer = (state=initialState, action) => {
     switch(action.type){
         case GET_RECIPES:
             return {...state, recipes: action.payload, recipesCopy: action.payload}
-        case RESET_FILTERS:
+        case RESET_SORTER:
             return {...state, sortedRecipes: [], sorted: false}   
         case RESET_ALL_RECIPES:
             return {...state, recipes: state.recipesCopy, sorted: false}  

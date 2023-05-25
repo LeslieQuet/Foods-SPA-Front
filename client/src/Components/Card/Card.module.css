@@ -12,13 +12,13 @@
 
 .name{
     font-family: Smalline;
-    font-size: 4vh;
+    font-size: 2vw;
     display: inline-block;
     margin: 5px;
 }
 
 .text{
-    font-size: 2vh;
+    font-size: 1em;
     display: inline;
     margin: 4px;
 }

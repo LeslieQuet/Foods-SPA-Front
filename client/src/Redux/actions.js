@@ -1,4 +1,3 @@
-//import axios from 'axios'
 export const GET_RECIPES = 'GET_RECIPES'
 export const GET_DETAIL = 'GET_DETAIL'
 export const GET_DIETS = 'GET_DIETS'
@@ -6,11 +5,11 @@ export const GET_RECIPES_QUERY = 'GET_RECIPES_QUERY'
 export const GET_RECIPES_BY_DIET = 'GET_RECIPES_BY_DIET'
 export const ORDERED_BY_NAME = 'ORDERED_BY_NAME'
 export const ORDERED_BY_SCORE = 'ORDERED_BY_SCORE'
-export const RESET_FILTERS = 'RESET_FILTERS'
+export const RESET_SORTER = 'RESET_SORTER'
 export const RESET_ALL_RECIPES = 'RESET_ALL_RECIPES'
 
 export const getRecipes = () => {
-    return async function(dispatch){
+    return async function(dispatch){        
         try{
             await fetch(`http://localhost:3001/recipes`)
             .then((res) => res.json())
@@ -18,13 +17,13 @@ export const getRecipes = () => {
         }
         catch (error){
             console.log(error)
-            alert(error.message)
+           alert(`An error has ocurred: we have no recipes to show`)
         }
     }
 }
 
-export const resetFilters = () => {
-    return {type: RESET_FILTERS}
+export const resetSorter = () => {
+    return {type: RESET_SORTER}
 }
 
 export const resetAllRecipes = () => {
@@ -58,7 +57,7 @@ export const getRecipesByDiet = (diet) => {
 export const getRecipeQuery = (search) => {
     return async function(dispatch){
         const response = await (await fetch(`http://localhost:3001/recipes?search=${search}`)).json()
-        if(response.error) alert("No recipes match, verify that the search has been made in all recipes")
+        if(response.error) alert("No recipes match the search")
         else { 
             dispatch({type: GET_RECIPES_QUERY, payload: response})
         }

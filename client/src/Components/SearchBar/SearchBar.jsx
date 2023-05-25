@@ -23,8 +23,8 @@ export default function SearchBar({setCurrentPage}) {
             setSearch("")
         }else{
             dispatch(getRecipeQuery(search))
-            setSearch("")
             setCurrentPage(1)
+            setSearch("")
         }
     };
 
@@ -32,7 +32,7 @@ export default function SearchBar({setCurrentPage}) {
         <div>
             <form>
                 <button className={style.searchButton} onClick={onSearch}>Recipe finder</button>
-                <input type='search' placeholder='Search by name' className={style.searchInput} onChange={changeHandler}/>
+                <input type='search' value={search} placeholder='Search by name or ingredient' className={style.searchInput} onChange={changeHandler}/>
             </form>
         </div>
     )

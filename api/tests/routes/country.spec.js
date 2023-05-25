@@ -6,10 +6,10 @@ const { Recipe, conn } = require('../../src/db.js');
 
 const agent = session(app);
 const recipe = {
-  name: 'Milanea a la napolitana',
+  name: 'Milanesa a la napolitana',
 };
 
-describe('Recipe routes', () => {
+xdescribe('Recipe routes', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);

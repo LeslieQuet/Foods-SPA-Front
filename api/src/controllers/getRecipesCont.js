@@ -38,7 +38,7 @@ const recipesGetter = async (search) => {
         if(FilteredRecipes.length) return FilteredRecipes;
         throw new Error ('No recipes match the search');
     }
-
+    
     return allRecipesOk;
 }
 

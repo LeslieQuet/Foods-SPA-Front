@@ -9,7 +9,7 @@ export default function RecipeDetail ({id, name, image, resume, health_score, st
     return(
         <div>
             <Link to="/home" >
-                <button className={style.xButton}>Back to home</button>
+                <button className={style.xButton}>Back to the recipes</button>
             </Link>
             <div style={{display: 'inline-block', margin: '2em'}}> 
                 <h2 className={style.name}>{name}</h2>

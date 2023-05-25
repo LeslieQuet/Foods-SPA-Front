@@ -1,8 +1,7 @@
 import React from "react";
 import style from './Sorter.module.css'
-import { orderedByName, orderedByScore } from "../../Redux/actions";
+import { orderedByName, orderedByScore, resetSorter } from "../../Redux/actions";
 import { useDispatch } from 'react-redux'
-import { resetFilters } from "../../Redux/actions";
 
 
 
@@ -11,7 +10,7 @@ export default function Sorter({setCurrentPage}) {
     const dispatch = useDispatch();
     
     const handleSelection = (event) => {
-        dispatch(resetFilters())
+        dispatch(resetSorter())
         if (event.target.value < 3) {
             dispatch(orderedByName(event.target.value))
         }

@@ -4,21 +4,20 @@ import style from './Pagination.module.css';
 
 
 export default function Pagination({postPerPage, totalPosts, paginate}) {
-    
-    const pageNumbers = [];
+    const [active, setActive] = useState(1);
 
+    const pageNumbers = [];
     for(let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++){
         pageNumbers.push(i);
     }
 
-    
     return (
         <div className={style.Container}>
             <ul className={style.ulContainer}>
                 {pageNumbers.map(number => {
                     return (
-                        <li className={style.li} key={number}> 
-                            <button onClick={()=>paginate(number)}>{number}</button>
+                        <li className={number === active? style.liActive: style.li} key={number}> 
+                            <button onClick={()=>(paginate(number), setActive(number))}>{number}</button>
                         </li>
                     )
                 })}

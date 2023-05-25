@@ -26,19 +26,12 @@
     transition: all 0.3s ease-in-out;
 }
 
-.li:hover{
-    color: rgb(77, 231, 180);
-}
-
-.active{
-    background-color: rgba(52, 240, 233, 0.977);
+.liActive{
     list-style-type: none;
-    width: 45px;
-    height: 45px;
-    padding: 10px;
-    color:rgb(250, 250, 250);
-    cursor: pointer;
-    text-align: center;
+    width: 40px;
+    height: 35px;
+    padding: 10px 0 0 0;
+    background-color: rgb(149, 237, 238);
     border-radius: 50px;
-    font-weight: bold;
+    transition: all 0.3s ease-in-out;
 }
