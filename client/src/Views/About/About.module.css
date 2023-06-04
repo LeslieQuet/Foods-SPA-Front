@@ -1,7 +1,18 @@
 .container{
     box-sizing: border-box;
     width: 60%;
+    padding: 3vh;
     background-color: white;
-    padding: 8vh;
     border-radius: 25px;
+}
+
+.img{
+    float: right;
+    margin: 3vh;
+}
+
+.text{
+    padding: 2vh;
+    margin: 2vh 3vh;
+    text-align: justify;
 }
