@@ -7,6 +7,7 @@ export const ORDERED_BY_NAME = 'ORDERED_BY_NAME'
 export const ORDERED_BY_SCORE = 'ORDERED_BY_SCORE'
 export const RESET_SORTER = 'RESET_SORTER'
 export const RESET_ALL_RECIPES = 'RESET_ALL_RECIPES'
+export const CLEAN_DETAIL = 'CLEAN_DETAIL'
 
 export const getRecipes = () => {
     return async function(dispatch){        
@@ -70,6 +71,10 @@ export const orderedByName = (value) => {
 
 export const orderedByScore = (value) => {
     return { type: ORDERED_BY_SCORE, payload: value }
+}
+
+export const cleanDetailState = () => {
+    return { type: CLEAN_DETAIL }
 }
 
 

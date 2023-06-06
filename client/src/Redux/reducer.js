@@ -1,4 +1,4 @@
-import {GET_DETAIL, RESET_SORTER, RESET_ALL_RECIPES, GET_DIETS, GET_RECIPES, GET_RECIPES_BY_DIET, GET_RECIPES_QUERY, ORDERED_BY_NAME, ORDERED_BY_SCORE} from "./actions";
+import {GET_DETAIL, RESET_SORTER, RESET_ALL_RECIPES, GET_DIETS, GET_RECIPES, GET_RECIPES_BY_DIET, GET_RECIPES_QUERY, ORDERED_BY_NAME, ORDERED_BY_SCORE, CLEAN_DETAIL} from "./actions";
 
 const initialState = {
     recipes:[],
@@ -20,6 +20,8 @@ const rootReducer = (state=initialState, action) => {
             return {...state, recipes: state.recipesCopy, sorted: false}  
         case GET_DETAIL:
             return {...state, detail: action.payload}
+        case CLEAN_DETAIL:
+            return {...state, detail: []}
         case GET_DIETS:
             return {...state, diets: action.payload}
         case GET_RECIPES_QUERY:
