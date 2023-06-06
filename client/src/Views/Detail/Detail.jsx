@@ -1,11 +1,10 @@
 import React from 'react';
 import style from './Detail.module.css';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDetail } from '../../Redux/actions';
 import RecipeDetail from '../../Components/RecipeDetail/RecipeDetail';
-import loader from '../../Assets/Img/Pizza.gif'
 
 export default function Detail(){
 
@@ -22,11 +21,6 @@ export default function Detail(){
     
     return(
         <div className={style.detailBox}> 
-            {/* {prevID !== ID?         
-                <div className={style.lContainer}>
-                    <p className={style.loader}>Loading recipe... </p>
-                    <img className={style.loaderGif} src={loader} alt="Loader" />
-                </div>: */}
             <RecipeDetail
                 key={ID}
                 id={ID}
@@ -37,7 +31,6 @@ export default function Detail(){
                 step_by_step={step_by_step}
                 diets={diets}
             />
-            {/* } */}
         </div>
     )
 }
