@@ -10,34 +10,6 @@ import axios from 'axios'
 
 export default function Create(){ 
 
-    //Formulario controlado mediante estado interno// estado de errores
-    const [inputValues, setInputValues] = useState({
-        name: "",
-        image: "",
-        resume: "",
-        health_score: 0,
-        step_by_step: "",
-        diets: [],
-    });
-
-    const [errors, setErrors] = useState({
-        name: "*It must only include letters and the field must not be empty",
-        image: "*Insert a valid url, the field must not be empty",
-        resume: "*Insert a text up to 400 characters, the field must not be empty",
-        health_score: "*Insert a numeric value, the field must not be empty",
-        step_by_step: "*Insert each steps in a paragraph, text up to 750 characters total, the field must not be empty",
-        diets: "*Must select at least one diet",
-    });
-
-    const handleInputChange = (event) => {
-        const property = event.target.name;
-        const value = event.target.value;
-    
-        setInputValues({ ...inputValues, [property]: value });
-        validate({...inputValues, [property]: value }, property, errors, setErrors);
-    }
-
-
     //Utilizando state.dieta envía props a CreateForm para armar el selector de dietas
     const diets = useSelector(state => state.diets)
     
@@ -55,6 +27,32 @@ export default function Create(){
         validate({ ...inputValues, diets: inputValues.diets.concat(value)}, property, errors, setErrors);
     }
 
+    //Formulario controlado mediante estado interno// estado de errores
+    const [inputValues, setInputValues] = useState({
+        name: "",
+        image: "",
+        resume: "",
+        health_score: 0,
+        step_by_step: "",
+        diets: [],
+    });    
+
+    const [errors, setErrors] = useState({
+        name: "*It must only include letters and the field must not be empty",
+        image: "*Insert a valid url, the field must not be empty",
+        resume: "*Insert a text up to 400 characters, the field must not be empty",
+        health_score: "*Insert a numeric value, the field must not be empty",
+        step_by_step: "*Insert each steps in a paragraph, text up to 750 characters total, the field must not be empty",
+        diets: "*Must select at least one diet",
+    });    
+
+    const handleInputChange = (event) => {
+        const property = event.target.name;
+        const value = event.target.value;
+    
+        setInputValues({ ...inputValues, [property]: value });
+        validate({...inputValues, [property]: value }, property, errors, setErrors);
+    }    
 
     //On Submit envía la información del estado a la ruta del post
     const navigate = useNavigate();
@@ -75,7 +73,8 @@ export default function Create(){
         })
 
         if(newRecipe.error){
-            alert((`Error trying to create new recipe: ${response.error}`)) //Alerta adicional por si algún error pasa las validaciones del form
+            alert((`Error trying to create new recipe: ${response.error}`)) 
+            //Alerta adicional por si algún error pasa las validaciones del form
         }
         else{
             alert("Recipe saved successfully");
