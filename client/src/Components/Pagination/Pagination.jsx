@@ -3,12 +3,16 @@ import { useState } from 'react';
 import style from './Pagination.module.css';
 
 
-export default function Pagination({postPerPage, totalPosts, paginate}) {
-    const [active, setActive] = useState(1);
+export default function Pagination({postPerPage, totalPosts, paginate, active, setActive}) {
 
     const pageNumbers = [];
     for(let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++){
         pageNumbers.push(i);
+    }
+
+    const selectedPage = (number) => {
+        paginate(number);
+        setActive(number);
     }
 
     return (
@@ -17,7 +21,7 @@ export default function Pagination({postPerPage, totalPosts, paginate}) {
                 {pageNumbers.map(number => {
                     return (
                         <li className={number === active? style.liActive: style.li} key={number}> 
-                            <button onClick={()=>(paginate(number), setActive(number))}>{number}</button>
+                            <button onClick={()=>(selectedPage(number))}>{number}</button>
                         </li>
                     )
                 })}

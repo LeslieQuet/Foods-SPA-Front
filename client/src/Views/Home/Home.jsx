@@ -21,8 +21,10 @@ export default function Home(){
         if(!recipes.length) dispatch(getRecipes());
     }, [recipes.length]);
     
+    
     //Pagination
     const [currentPage, setCurrentPage] = useState(1);
+    const [active, setActive] = useState(1);
     const [postPerPage] = useState(9);
     
     const indexOfLastPost = currentPage * postPerPage; 
@@ -31,15 +33,21 @@ export default function Home(){
     
     const currentPosts = sorted?(sortedRecipes.slice(indexOfFirstPost, indexOfLastPost)):recipes.slice(indexOfFirstPost, indexOfLastPost);
     
+    const clickHandler = ()=>{
+        dispatch(resetAllRecipes());
+        setCurrentPage(1); 
+        setActive(1);
+    }
+
     return(
     <div className={style.HomeContainer}>
         <div className={style.menu}> 
-                <Filter setCurrentPage={setCurrentPage}/>
-                <SearchBar setCurrentPage={setCurrentPage}/>
-                <button className={style.buttonAllRecipes} onClick={()=>{dispatch(resetAllRecipes())}}>Back to all recipes</button>
+                <Filter setCurrentPage={setCurrentPage} setActive={setActive}/>
+                <SearchBar setCurrentPage={setCurrentPage} setActive={setActive}/>
+                <button className={style.buttonAllRecipes} onClick={clickHandler}>Back to all recipes</button>
                 <Sorter setCurrentPage={setCurrentPage}/>
         </div>
-        <Pagination postPerPage={postPerPage} totalPosts={recipes.length} paginate={paginate}/>
+        <Pagination postPerPage={postPerPage} totalPosts={recipes.length} paginate={paginate} active={active} setActive={setActive}/>
         <div>
             {currentPosts.length? <Cards currentPosts={currentPosts}/>:
             <div className={style.lContainer}>

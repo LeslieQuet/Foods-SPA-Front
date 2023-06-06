@@ -4,7 +4,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { useEffect } from "react";
 import { getDiets, getRecipesByDiet } from "../../Redux/actions";
 
-export default function Filter({setCurrentPage}){
+export default function Filter({setCurrentPage, setActive}){
 
     const diets = useSelector(state => state.diets)
 
@@ -18,7 +18,8 @@ export default function Filter({setCurrentPage}){
         const {value} = event.target
         dispatch(getRecipesByDiet(value))
         event.target.value = "default";
-        setCurrentPage(1)
+        setCurrentPage(1);
+        setActive(1);
     }
 
     return(
