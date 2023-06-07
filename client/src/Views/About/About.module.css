@@ -1,18 +1,19 @@
 .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     width: 60%;
-    padding: 3vh;
     background-color: white;
     border-radius: 25px;
 }
 
 .img{
-    float: right;
     margin: 3vh;
 }
 
 .text{
-    padding: 2vh;
-    margin: 2vh 3vh;
+    margin: 4.5vh;
     text-align: justify;
 }

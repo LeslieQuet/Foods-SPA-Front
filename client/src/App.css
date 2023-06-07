@@ -21,6 +21,7 @@ font-family: Smalline;
   flex-direction: column;
   align-items: center;
   background-color: rgba(63, 36, 36, 0.5);
+  min-height: 100vh;
 }
 
 .h1{
