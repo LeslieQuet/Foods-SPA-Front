@@ -1,7 +1,7 @@
 import React from "react";
 import style from './CreateForm.module.css'
 
-export default function CreateForm({handleInputChange, errors, diets, handleDiets, onSubmit}){
+export default function CreateForm({handleInputChange, errors, diets, handleDiets, onSubmit, selectedDiets}){
 
     const disable = () => {
         for (const error of Object.values(errors)) {
@@ -11,6 +11,8 @@ export default function CreateForm({handleInputChange, errors, diets, handleDiet
         }
         return false; 
     };
+
+    let dietsString = "".concat(...selectedDiets);
 
     return(
         <form className={style.form} onSubmit={onSubmit} id="form"> 
@@ -49,6 +51,7 @@ export default function CreateForm({handleInputChange, errors, diets, handleDiet
                 ))}
             </select>
             <p className={style.error}>{errors.diets}</p>
+            <p className={style.selectedDiets}>{dietsString}</p>
             <button type="submit" disabled={disable()} className={style.xButton}>Create new recipe</button>
         </form>
     )

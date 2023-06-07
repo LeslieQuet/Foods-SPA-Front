@@ -11,6 +11,10 @@
     font-weight: bold;
 }
 
+.selectedDiets{
+    margin: auto;
+}
+
 .inputMin{
     text-align: center;
     border: 0px;
@@ -47,7 +51,7 @@
     width: fit-content;
     height: fit-content;
     background-color: #1bef4d; 
-    border-radius: 15%;
+    border-radius: 10px;
     font-weight: bold;
     transition: 0.5s;
 }

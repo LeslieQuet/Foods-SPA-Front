@@ -23,7 +23,7 @@
   width: 4vh;
   color: white;
   font-size: 2vw;
-  font-family: Burglar;
+  font-family: Smalline;
   background-color: rgb(255, 94, 0);
   border-radius: 10px;
   text-align: center;
@@ -35,8 +35,14 @@
   padding: 1.8vh;
   color: white;
   font-size: 2vw;
-  font-family: Burglar;
+  font-family: Smalline;
   background-color: rgb(255, 162, 0);
   border-radius: 10px;
   border: 3px solid #fff;
+}
+
+.inactive:hover{
+  cursor: pointer;
+  background-color: rgb(10, 184, 172);
+  box-shadow: 6px 7px 22px -3px rgba(0,0,0,0.72);
 }
