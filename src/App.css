@@ -51,6 +51,10 @@ font-family: Smalline;
   letter-spacing: 3px;
 }
 
+.link{
+  color: white;
+}
+
 .h3{
   color: white;
   font-size: 12px;

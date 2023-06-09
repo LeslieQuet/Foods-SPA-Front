@@ -18,9 +18,7 @@ export default function Pagination({postPerPage, totalPosts, paginate, active, s
         <div className={style.Container}>
             {pageNumbers.map(number => {
                 return (
-                    // <li className={number === active? style.liActive: style.li} key={number}> 
-                        <button className={number === active? style.active: style.inactive} onClick={()=>(selectedPage(number))}>{number}</button>
-                    // </li>
+                    <button className={number === active? style.active: style.inactive} onClick={()=>(selectedPage(number))}>{number}</button>
                 )
             })}
         </div>

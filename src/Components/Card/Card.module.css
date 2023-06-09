@@ -9,6 +9,11 @@
     border-radius: 20px;
 }
 
+.cardContainer:hover{
+    scale: 1.05;
+    transition: all 0.3s ease-in-out;
+}
+
 .name{
     font-family: Smalline;
     font-size: 2vw;
@@ -52,15 +57,14 @@
 } 
 
 .button{
-    font-family: Smalline;
-    font-size: 1.5vw;
-    letter-spacing: 0.3vw;
+    font-size: 2vh;
+    font-weight: bolder;
     background-color: rgb(255, 94, 0);
-    padding: 0.5vw;
+    padding: 0.5vw 1vw;
     margin: 1vh;
     text-decoration: none;
-    border: none;
     color: white;
+    border: none;
     border-radius: 10px;
 }
 

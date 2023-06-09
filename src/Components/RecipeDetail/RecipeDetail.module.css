@@ -47,8 +47,9 @@
     background-color: rgb(255, 94, 0);
     border: 3px solid #fff;
     font-size: 2vh;
+    color: white;
     font-weight: bolder;
-    padding: 8px;
+    padding: 0.7vw;
     margin-top: 15px;
     cursor: pointer;
 }

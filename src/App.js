@@ -16,7 +16,7 @@ function App() {
         {pathname !== "/" && <NavBar/>}
         <h1 className='h1'>Food Single Page Aplication</h1>
         <div className='subtitles'>
-          <h2 className='h2'>Created by Leslie Quetglas</h2>
+          <h2 className='h2'>Created by <a href="https://www.linkedin.com/in/leslie-quetglas/" target="_blank" rel="noreferrer" className='link' > Leslie Quetglas</a> </h2>
           <h3 className='h3'>A project brought to you by Soy Henry</h3>
         </div>
         {pathname === "/" && <Link to="/home">
