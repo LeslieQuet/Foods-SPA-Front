@@ -2,7 +2,6 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
     margin: 10px;
     padding: 1em;
@@ -14,13 +13,19 @@
     font-family: Smalline;
     font-size: 2vw;
     display: inline-block;
-    margin: 5px;
+    margin: 8px;
 }
 
 .text{
-    font-size: 1em;
+    font-size: 1vw;
     display: inline;
-    margin: 4px;
+    margin: 0px;
+}
+
+.textId{
+    font-size: 0.8vw;
+    display: inline;
+    margin: 0px;
 }
 
 .ulContainer{
@@ -32,7 +37,7 @@
 .li{
     display: inline-block;
     margin: 3px;
-    font-size: 2vh;
+    font-size: 1vw;
     text-decoration: none;
     text-align: center;
 }
@@ -42,26 +47,26 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-    border-radius: 15%;
-    width: 80%;
+    border-radius: 20px;
+    width: 55%;
 } 
 
 .button{
-    display: inline-block;
-    text-align: center;
-    width: 15vh;
-    height: 9vh;
+    font-family: Smalline;
+    font-size: 1.5vw;
+    letter-spacing: 0.3vw;
     background-color: rgb(255, 94, 0);
+    padding: 0.5vw;
+    margin: 1vh;
     text-decoration: none;
     border: none;
-    margin: 5px;
     color: white;
-    border-radius: 15%;
-    transition: 0.5s;
+    border-radius: 10px;
 }
 
 .button:hover{
+    transition: 0.5s;
     cursor: pointer;
-    background-color: rgb(66, 255, 242);
+    background-color: rgb(10, 184, 172);
     box-shadow: 6px 7px 22px -3px rgba(0,0,0,0.72);
 }

@@ -15,10 +15,10 @@ export default function Card({id, name, image, health_score, diets}){
                     })}
             </ul>
             <p className={style.text}>Health score: {health_score}</p>
-            <Link to={`/recipe/${id}`} className={style.button}>
-                <h5>Full recipe</h5>
+            <Link to={`/recipe/${id}`}>
+                <button className={style.button}>Full recipe</button>
             </Link>
-            <p className={style.text}>Id: {id}</p>
+            <p className={style.textId}>Id: {id}</p>
         </div>
     )
 }
