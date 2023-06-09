@@ -16,15 +16,13 @@ export default function Pagination({postPerPage, totalPosts, paginate, active, s
 
     return (
         <div className={style.Container}>
-            <ul className={style.ulContainer}>
-                {pageNumbers.map(number => {
-                    return (
-                        <li className={number === active? style.liActive: style.li} key={number}> 
-                            <button onClick={()=>(selectedPage(number))}>{number}</button>
-                        </li>
-                    )
-                })}
-            </ul>
+            {pageNumbers.map(number => {
+                return (
+                    // <li className={number === active? style.liActive: style.li} key={number}> 
+                        <button className={number === active? style.active: style.inactive} onClick={()=>(selectedPage(number))}>{number}</button>
+                    // </li>
+                )
+            })}
         </div>
     )
 }

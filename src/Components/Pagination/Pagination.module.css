@@ -1,18 +1,31 @@
 .Container{
-    margin: 0 auto;
-    height: auto;
-    width: fit-content;
-    max-width: 70%;
-}
-
-.ulContainer{
-    border-radius: 30px;
-    background-color: rgb(255, 162, 0);
-    padding: 0 5px 0 5px;
-    margin: 5px;
+    padding: 0.5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: 2vh auto;
+    max-width: 35%;
+    background-color: rgb(255, 162, 0);
+    border-radius: 15px;
+}
+
+.inactive{
+    width: 2vw;
+    margin: 0.5vh;
+    padding: 1vh;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.active{
+    width: 2.5vw;
+    margin: 0.5vh;
+    padding: 1vh;
+    border: 3px solid #13716d;
+    border-radius: 5px;
+    cursor: pointer;
+    background: rgb(24, 201, 177);
 }
 
 .li{
@@ -21,7 +34,6 @@
     height: 35px;
     padding: 10px 0 0 0;
     color:rgb(66, 64, 64);
-    cursor: pointer;
     border-radius: 50px;
     transition: all 0.3s ease-in-out;
 }
