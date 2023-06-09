@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 
 
 
-export default function Sorter({setCurrentPage}) {
+export default function Sorter({setPaginateOnFirstPage}) {
     
     const dispatch = useDispatch();
     
@@ -16,7 +16,7 @@ export default function Sorter({setCurrentPage}) {
         }
         else dispatch(orderedByScore(event.target.value))
         event.target.value = "default";
-        setCurrentPage(1)
+        setPaginateOnFirstPage();
     }
 
     return(

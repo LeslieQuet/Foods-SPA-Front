@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getRecipeQuery } from '../../Redux/actions';
 
 
-export default function SearchBar({setCurrentPage, setActive}) {
+export default function SearchBar({setPaginateOnFirstPage}) {
     const [search, setSearch] = useState("")
     const changeHandler = (event) => {
       const {value} = event.target; 
@@ -23,8 +23,7 @@ export default function SearchBar({setCurrentPage, setActive}) {
             setSearch("")
         }else{
             dispatch(getRecipeQuery(search))
-            setCurrentPage(1)
-            setActive(1)
+            setPaginateOnFirstPage()
             setSearch("")
         }
     };

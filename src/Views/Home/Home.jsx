@@ -32,20 +32,24 @@ export default function Home(){
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
     
     const currentPosts = sorted?(sortedRecipes.slice(indexOfFirstPost, indexOfLastPost)):recipes.slice(indexOfFirstPost, indexOfLastPost);
+        
+    const setPaginateOnFirstPage = ()=>{
+        setCurrentPage(1); 
+        setActive(1);
+    }
     
     const clickHandler = ()=>{
         dispatch(resetAllRecipes());
-        setCurrentPage(1); 
-        setActive(1);
+        setPaginateOnFirstPage()
     }
 
     return(
     <div className={style.HomeContainer}>
         <div className={style.menu}> 
-                <Filter setCurrentPage={setCurrentPage} setActive={setActive}/>
-                <SearchBar setCurrentPage={setCurrentPage} setActive={setActive}/>
+                <Filter setPaginateOnFirstPage={setPaginateOnFirstPage}/>
+                <SearchBar setPaginateOnFirstPage={setPaginateOnFirstPage}/>
                 <button className={style.buttonAllRecipes} onClick={clickHandler}>Back to all recipes</button>
-                <Sorter setCurrentPage={setCurrentPage}/>
+                <Sorter setPaginateOnFirstPage={setPaginateOnFirstPage}/>
         </div>
         <Pagination postPerPage={postPerPage} totalPosts={recipes.length} paginate={paginate} active={active} setActive={setActive}/>
         <div>
