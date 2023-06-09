@@ -51,7 +51,6 @@ export default function Home(){
                 <button className={style.buttonAllRecipes} onClick={clickHandler}>Back to all recipes</button>
                 <Sorter setPaginateOnFirstPage={setPaginateOnFirstPage}/>
         </div>
-        <Pagination postPerPage={postPerPage} totalPosts={recipes.length} paginate={paginate} active={active} setActive={setActive}/>
         <div>
             {currentPosts.length? <Cards currentPosts={currentPosts}/>:
             <div className={style.lContainer}>
@@ -59,6 +58,7 @@ export default function Home(){
                 <p className={style.loader}>Loading recipes... </p>
             </div>
         }
+        <Pagination postPerPage={postPerPage} totalPosts={recipes.length} paginate={paginate} active={active} setActive={setActive}/>
         </div>
     </div>
     )

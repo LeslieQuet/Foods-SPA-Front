@@ -29,7 +29,8 @@ font-family: Smalline;
   font-size: 15vh;
   color: white;
   text-shadow: -8px -5px 10px #070707;
-  margin: 1vw;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
 }
 
 .subtitles{
