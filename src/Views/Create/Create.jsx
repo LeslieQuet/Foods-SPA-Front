@@ -63,7 +63,7 @@ export default function Create(){
     const onSubmit = async (e)=>{
             e.preventDefault()
 
-        const response = await axios.post('http://localhost:3001/recipes', inputValues)
+        const response = await axios.post('/recipes', inputValues)
         const newRecipe = response.data;
 
         setInputValues({

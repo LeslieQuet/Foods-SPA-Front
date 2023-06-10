@@ -1,3 +1,9 @@
+const fetch = require('node-fetch');
+const fetchAbsolute = require('fetch-absolute');
+
+// const fetchApi = fetchAbsolute(fetch)('http://localhost:3001');
+const fetchApi = fetchAbsolute(fetch)('https://foods-spa-back-production-lesliequetglas.up.railway.app');
+
 export const GET_RECIPES = 'GET_RECIPES'
 export const GET_DETAIL = 'GET_DETAIL'
 export const GET_DIETS = 'GET_DIETS'
@@ -12,7 +18,7 @@ export const CLEAN_DETAIL = 'CLEAN_DETAIL'
 export const getRecipes = () => {
     return async function(dispatch){        
         try{
-            await fetch(`http://localhost:3001/recipes`)
+            await fetch(`${fetchApi}/recipes`)
             .then((res) => res.json())
             .then((data) => dispatch({type: GET_RECIPES, payload: data}))
         }
@@ -33,7 +39,7 @@ export const resetAllRecipes = () => {
 
 export const getDetail = (id) => {
     return function(dispatch){
-        fetch(`http://localhost:3001/recipes/${id}`)
+        fetch(`${fetchApi}/${id}`)
             .then((res) => res.json())
             .then((data) => dispatch({type: GET_DETAIL, payload: data}))
     }
@@ -41,7 +47,7 @@ export const getDetail = (id) => {
 
 export const getDiets = () => {
     return function(dispatch){
-        fetch(`http://localhost:3001/diets`)
+        fetch(`${fetchApi}/diets`)
             .then((res) => res.json())
             .then((data) => dispatch({type: GET_DIETS, payload: data}))
     }
@@ -49,7 +55,7 @@ export const getDiets = () => {
 
 export const getRecipesByDiet = (diet) => {
     return function(dispatch){
-        fetch(`http://localhost:3001/diets?diet=${diet}`)
+        fetch(`${fetchApi}/diets?diet=${diet}`)
             .then((res) => res.json())
             .then((data) => dispatch({type: GET_RECIPES_BY_DIET, payload: data}))
     }
@@ -57,7 +63,7 @@ export const getRecipesByDiet = (diet) => {
 
 export const getRecipeQuery = (search) => {
     return async function(dispatch){
-        const response = await (await fetch(`http://localhost:3001/recipes?search=${search}`)).json()
+        const response = await (await fetch(`${fetchApi}/recipes?search=${search}`)).json()
         if(response.error) alert("No recipes match the search")
         else { 
             dispatch({type: GET_RECIPES_QUERY, payload: response})
