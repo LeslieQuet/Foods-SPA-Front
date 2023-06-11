@@ -56,7 +56,7 @@ export const getRecipesByDiet = (diet) => {
 
 export const getRecipeQuery = (search) => {
     return async function(dispatch){
-        const response = await (await axios(`/recipes?search=${search}`))
+        const response = await axios(`/recipes?search=${search}`)
         if(response.error) alert("No recipes match the search")
         else { 
             dispatch({type: GET_RECIPES_QUERY, payload: response.data})
