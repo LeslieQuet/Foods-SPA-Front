@@ -1,8 +1,10 @@
-const fetch = require('node-fetch');
-const fetchAbsolute = require('fetch-absolute');
+// const fetch = require('node-fetch');
+// const fetchAbsolute = require('fetch-absolute');
 
 // const fetchApi = fetchAbsolute(fetch)('http://localhost:3001');
-const fetchApi = fetchAbsolute(fetch)('https://foods-spa-back-production-lesliequetglas.up.railway.app');
+// const fetchApi = fetchAbsolute(fetch)('https://foods-spa-back-production-lesliequetglas.up.railway.app');
+
+import axios from "axios"
 
 export const GET_RECIPES = 'GET_RECIPES'
 export const GET_DETAIL = 'GET_DETAIL'
@@ -18,13 +20,12 @@ export const CLEAN_DETAIL = 'CLEAN_DETAIL'
 export const getRecipes = () => {
     return async function(dispatch){        
         try{
-            await fetch(`${fetchApi}/recipes`)
-            .then((res) => res.json())
-            .then((data) => dispatch({type: GET_RECIPES, payload: data}))
+            const data = await axios(`/recipes`)
+            dispatch({type: GET_RECIPES, payload: data})
         }
         catch (error){
             console.log(error)
-           alert(`An error has ocurred: we have no recipes to show`)
+            alert(`An error has ocurred: we have no recipes to show`)
         }
     }
 }
@@ -39,31 +40,28 @@ export const resetAllRecipes = () => {
 
 export const getDetail = (id) => {
     return function(dispatch){
-        fetch(`${fetchApi}/${id}`)
-            .then((res) => res.json())
-            .then((data) => dispatch({type: GET_DETAIL, payload: data}))
+        const data = axios(`/recipes/${id}`)
+        dispatch({type: GET_DETAIL, payload: data})
     }
 }
 
 export const getDiets = () => {
     return function(dispatch){
-        fetch(`${fetchApi}/diets`)
-            .then((res) => res.json())
-            .then((data) => dispatch({type: GET_DIETS, payload: data}))
+        const data = axios(`/diets`)
+        dispatch({type: GET_DIETS, payload: data})
     }
 }
 
 export const getRecipesByDiet = (diet) => {
     return function(dispatch){
-        fetch(`${fetchApi}/diets?diet=${diet}`)
-            .then((res) => res.json())
-            .then((data) => dispatch({type: GET_RECIPES_BY_DIET, payload: data}))
+        const data = axios(`/diets?diet=${diet}`)
+        dispatch({type: GET_RECIPES_BY_DIET, payload: data})
     }
 }
 
 export const getRecipeQuery = (search) => {
     return async function(dispatch){
-        const response = await (await fetch(`${fetchApi}/recipes?search=${search}`)).json()
+        const response = await (await axios(`/recipes?search=${search}`))
         if(response.error) alert("No recipes match the search")
         else { 
             dispatch({type: GET_RECIPES_QUERY, payload: response})
