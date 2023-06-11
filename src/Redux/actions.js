@@ -1,9 +1,3 @@
-// const fetch = require('node-fetch');
-// const fetchAbsolute = require('fetch-absolute');
-
-// const fetchApi = fetchAbsolute(fetch)('http://localhost:3001');
-// const fetchApi = fetchAbsolute(fetch)('https://foods-spa-back-production-lesliequetglas.up.railway.app');
-
 import axios from "axios"
 
 export const GET_RECIPES = 'GET_RECIPES'
@@ -39,22 +33,23 @@ export const resetAllRecipes = () => {
 }
 
 export const getDetail = (id) => {
-    return function(dispatch){
-        const response = axios(`/recipes/${id}`)
+    return async function(dispatch){
+        const response = await axios(`/recipes/${id}`)
         dispatch({type: GET_DETAIL, payload: response.data})
     }
 }
 
 export const getDiets = () => {
-    return function(dispatch){
-        const response = axios(`/diets`)
+    return async function (dispatch){
+        const response = await axios.get(`/diets`)
+        console.log(response.data)
         dispatch({type: GET_DIETS, payload: response.data})
     }
 }
 
 export const getRecipesByDiet = (diet) => {
-    return function(dispatch){
-        const response = axios(`/diets?diet=${diet}`)
+    return async function(dispatch){
+        const response = await axios(`/diets?diet=${diet}`)
         dispatch({type: GET_RECIPES_BY_DIET, payload: response.data})
     }
 }
