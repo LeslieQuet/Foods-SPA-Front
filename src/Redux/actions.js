@@ -20,8 +20,8 @@ export const CLEAN_DETAIL = 'CLEAN_DETAIL'
 export const getRecipes = () => {
     return async function(dispatch){        
         try{
-            const data = await axios(`/recipes`)
-            dispatch({type: GET_RECIPES, payload: data})
+            const response = await axios(`/recipes`)
+            dispatch({type: GET_RECIPES, payload: response.data})
         }
         catch (error){
             console.log(error)
@@ -40,22 +40,22 @@ export const resetAllRecipes = () => {
 
 export const getDetail = (id) => {
     return function(dispatch){
-        const data = axios(`/recipes/${id}`)
-        dispatch({type: GET_DETAIL, payload: data})
+        const response = axios(`/recipes/${id}`)
+        dispatch({type: GET_DETAIL, payload: response.data})
     }
 }
 
 export const getDiets = () => {
     return function(dispatch){
-        const data = axios(`/diets`)
-        dispatch({type: GET_DIETS, payload: data})
+        const response = axios(`/diets`)
+        dispatch({type: GET_DIETS, payload: response.data})
     }
 }
 
 export const getRecipesByDiet = (diet) => {
     return function(dispatch){
-        const data = axios(`/diets?diet=${diet}`)
-        dispatch({type: GET_RECIPES_BY_DIET, payload: data})
+        const response = axios(`/diets?diet=${diet}`)
+        dispatch({type: GET_RECIPES_BY_DIET, payload: response.data})
     }
 }
 
@@ -64,7 +64,7 @@ export const getRecipeQuery = (search) => {
         const response = await (await axios(`/recipes?search=${search}`))
         if(response.error) alert("No recipes match the search")
         else { 
-            dispatch({type: GET_RECIPES_QUERY, payload: response})
+            dispatch({type: GET_RECIPES_QUERY, payload: response.data})
         }
     }
 }
