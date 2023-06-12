@@ -28,7 +28,6 @@ export default function Create(){
         health_score: 0,
         step_by_step: "",
         diets: [],
-        selectedDiets: [],
     });    
     
     const [errors, setErrors] = useState({
@@ -53,7 +52,7 @@ export default function Create(){
         const property = e.target.name;
         const value = e.target.value;
 
-        setInputValues({ ...inputValues, diets: inputValues.diets.concat(value), selectedDiets: inputValues.selectedDiets.concat(diets[value -1].name, " ")});
+        setInputValues({ ...inputValues, diets: inputValues.diets.concat(value)});
         validate({ ...inputValues, diets: inputValues.diets.concat(value)}, property, errors, setErrors);
     }
 
@@ -94,7 +93,6 @@ export default function Create(){
                 diets={diets} 
                 handleDiets={handleDiets} 
                 onSubmit={onSubmit} 
-                selectedDiets={inputValues.selectedDiets}
                 />
         </div>
     )
