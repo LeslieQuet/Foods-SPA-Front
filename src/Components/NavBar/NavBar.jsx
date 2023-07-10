@@ -7,7 +7,7 @@ export default function NavBar (){
         <div className={style.bar}>
             <ul className={style.ulMenu}>
                 <li>
-                    <NavLink to="/home" className={({isActive}) => isActive ? style.active: style.inactive}>Home</NavLink>
+                    <NavLink to="/" className={({isActive}) => isActive ? style.active: style.inactive}>Home</NavLink>
                 </li>
                 <li>
                     <NavLink to="/recipe/create" className={({isActive}) => isActive ? style.active: style.inactive}>Create a new recipe</NavLink>

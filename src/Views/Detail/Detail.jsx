@@ -15,7 +15,7 @@ export default function Detail(){
 
     useEffect(() => {
         dispatch(getDetail(ID));
-    }, [dispatch]);
+    }, [dispatch, ID]);
 
     const {name, image, resume, health_score, step_by_step, diets} = recipeDetail;
     

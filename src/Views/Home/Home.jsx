@@ -19,8 +19,7 @@ export default function Home(){
 
     useEffect(()=>{
         if(!recipes.length) dispatch(getRecipes());
-    }, [recipes.length]);
-    
+    }, [dispatch, recipes.length]);  
     
     //Pagination
     const [currentPage, setCurrentPage] = useState(1);

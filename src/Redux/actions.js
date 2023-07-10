@@ -48,7 +48,6 @@ export const getDetail = (id) => {
 export const getDiets = () => {
     return async function (dispatch){
         const response = await axios.get(`/diets`)
-        console.log(response.data)
         dispatch({type: GET_DIETS, payload: response.data})
     }
 }

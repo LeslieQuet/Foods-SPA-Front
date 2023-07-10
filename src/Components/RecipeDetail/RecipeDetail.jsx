@@ -11,7 +11,7 @@ export default function RecipeDetail ({id, name, image, resume, health_score, st
 
     return(
         <div>
-            <Link to="/home" >
+            <Link to="/" >
                 <button className={style.xButton} onClick={cleanDetail}>Back to the recipes</button>
             </Link>
             <div style={{display: 'inline-block', margin: '2em'}}> 

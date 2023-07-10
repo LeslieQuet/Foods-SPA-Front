@@ -40,7 +40,7 @@ export default function CreateForm({handleInputChange, errors, diets, handleDiet
                 <p className={style.error}>{errors.step_by_step}</p>
             </div>
             <p className={style.text}>Select diets:</p>
-            <select name="diets" onChange={handleDiets} required="true">
+            <select name="diets" onChange={handleDiets} required={true}>
                 <option value="default">Choose a diet or diets</option>
                 {diets?.map((item) => (
                     <option value={item.id} key={item.id}>
