@@ -63,7 +63,7 @@ font-family: Smalline;
   letter-spacing: 2px;
 }
 
-.button{
+/* .button{
   font-family: Smalline;
   font-size: 4vw;
   margin-top: 35%;
@@ -77,7 +77,7 @@ font-family: Smalline;
 .button:hover{
   font-size: 4.5vw;
   transition: all 0.3s ease-in-out;
-}
+} */
 
 /* .App-logo {
   height: 40vmin;

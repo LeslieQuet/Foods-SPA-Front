@@ -13,7 +13,7 @@ export default function Cards({currentPosts}){
                     name={recipe.name}
                     image={recipe.image}
                     health_score={recipe.health_score}
-                    diets={recipe.diets}
+                    // diets={recipe.diets}
                     />;
                 })}
         </div>
