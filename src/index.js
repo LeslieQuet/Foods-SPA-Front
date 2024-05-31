@@ -9,7 +9,7 @@ import store from './Redux/store';
 import axios from 'axios';
 
 // axios.defaults.baseURL = 'http://localhost:3001'
-axios.defaults.baseURL = 'https://foods-spa-back.vercel.app'
+axios.defaults.baseURL = 'https://foods-spa-back-7k1ei045y-lesliequets-projects.vercel.app/'
 
 ReactDOM.render(
   <Provider store={store}>

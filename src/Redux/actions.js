@@ -1,9 +1,3 @@
-// const fetch = require('node-fetch');
-// const fetchAbsolute = require('fetch-absolute');
-
-// const fetchApi = fetchAbsolute(fetch)('http://localhost:3001');
-// const fetchApi = fetchAbsolute(fetch)('https://foods-spa-back-production-lesliequetglas.up.railway.app');
-
 import axios from "axios"
 
 export const GET_RECIPES = 'GET_RECIPES'
